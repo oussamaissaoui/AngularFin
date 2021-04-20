@@ -1,0 +1,120 @@
+
+
+
+<div>
+<mat-card class="box-card mat-elevation-z6">
+
+   
+    <mat-tab-group animationDuration="500ms" class="remove-border-bottom">
+ 
+        <mat-tab  label="Sell">
+          
+          <div class="container">
+            <form [formGroup]="Myform" (ngSubmit)="onSubmit()"> 
+           
+           
+          <!--ROW 1-->
+
+              <div class="row">
+
+                <label for="Region" class="col-sm  inputt">Region</label>
+                <!--<h2 class="col-sm">Select Your Region</h2>-->
+
+                <label for="inputPassword3" class="col-sm  inputt">Number of Rooms</label>
+
+                <mat-label class="col-sm  inputt">Surface</mat-label> 
+              </div>
+
+
+
+          <!--ROW 2-->
+            
+              <div class="row"> 
+                           
+                <div class="col-sm"> 
+                  <mat-form-field appearance="fill">
+                  <mat-select formControlName="Region">
+                    <mat-option *ngFor="let region of regions" [value]="region.value">
+                      {{region.viewValue}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+                </div>
+
+
+
+                <div class="col-sm"> 
+                  <mat-form-field appearance="fill">
+                    
+                    <input matInput type="number" class="example-right-align" formControlName="RoomsNumber" min="1" max="20">
+                    
+                    <span matSuffix> .Rooms</span>
+                    <mat-error>Min Number: 1</mat-error>
+                    
+                  </mat-form-field>
+                </div>
+              
+
+
+                <div class="col-sm"> 
+                  <mat-form-field appearance="fill">
+                    
+                    <mat-label>Surf</mat-label>
+                    <input matInput type="number" class="example-right-align" formControlName="Surface" min="20" max="20000">
+                    
+                    <span matSuffix>  /m²</span>
+                    <mat-error>Min Surface: 20m²</mat-error>
+                    
+                  </mat-form-field>
+                </div>
+              </div>
+              
+              
+            <div class="sld">
+              <mat-label class="inputtsld">Price</mat-label>  
+              <ng5-slider [(value)]="minValue" [(highValue)]="maxValue" [options]="options"></ng5-slider>
+
+            </div>
+
+              
+             
+              
+
+              <div class="form-group row">
+                <div class="divbtn">
+                  <button type="submit" class="btn btn-primary bouton">SEARCH</button>
+                </div>
+              </div>
+            <div class="form-group row">
+
+              
+              
+            </div>
+              
+            </form>
+            
+            </div>
+           
+
+      
+            
+            
+            
+           
+        </mat-tab>
+        
+        
+        <mat-tab label="Rent">Content 2</mat-tab>
+        
+        
+        <mat-tab label="Furniture">Content 3</mat-tab>
+      
+    </mat-tab-group>
+
+</mat-card>
+</div>
+
+
+
+
+

@@ -1,0 +1,202 @@
+
+
+
+/*
+  ****************************************
+  ******* debut de  MAT-TAB *************
+  ****************************************
+  */
+
+  .mat-tab-group {
+   margin-top:auto;
+    width: 1000px;
+    margin-left: 10px;
+    
+  }
+
+/* https://stackblitz.com/edit/dmgrave-ng-so-anser-tabs-style?file=styles.css  styles kemlin */
+
+/* Pour Label ki yabda Actif */
+.mat-tab-label.mat-tab-label-active {
+    
+        color: rgb(0, 0, 0);
+        background: rgba(221, 218, 218, 0.383);
+        cursor: default;
+        font-size: 20px;
+        font-weight: 500;
+        margin-right: 5px;
+        font-family: 'Poppins', sans-serif;
+    text-transform: capitalize;
+    
+}
+
+/* Styles for the ink bar */
+.mat-tab-group.mat-primary .mat-ink-bar, .mat-tab-nav-bar.mat-primary .mat-ink-bar{
+    background: #dfdfdf;
+    height: 1px;
+  } 
+
+p {
+    font-family: Lato;
+}
+
+/* Pour Label ki yabda  NON Actif */
+  .mat-tab-label {
+    
+    margin-right: 1px;
+    
+    border-radius: 5px;
+    color: #fff;
+    background: #00d8ff;
+    cursor: default;
+    font-size: 20px;
+    font-weight: 500;
+    font-family: 'Poppins', sans-serif;
+    text-transform: capitalize;
+    
+}
+
+
+/* https://stackblitz.com/edit/angular-jggy2s?file=src%2Fapp%2Fapp.component.css config de on hover */
+
+  .mat-tab-label:hover{
+
+    color: rgb(0, 0, 0);
+        background: rgb(221, 218, 218, 0.383);
+  }
+
+  
+  .remove-border-bottom .mat-tab-header {
+    border-bottom: none;
+}
+
+  /*
+  ****************************************
+  ******* End de  MAT-TAB *************
+  ****************************************
+  */
+
+  .box-card {
+    margin-top: 40px;
+    max-width: 1200px;
+    max-height: 420px;
+    margin-left: 40px;
+    
+    
+  }  
+
+
+  mat-slider {
+    width: 300px;
+    margin-top: 10px;
+  }
+
+
+  /* *********************************************************************************** */
+
+  :host {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .container {
+    margin-top: 60px;
+    margin-left: 20px;
+  }
+
+  .form-group{
+    max-width: 400px;
+    margin-top: 30px;
+    
+  }
+
+  .form-control{
+    width: 400px;
+  }
+
+  .bouton{
+    margin-left: 940px;
+    margin-top:-80px;
+    
+    border-radius: 5px;
+    color: #fff;
+    background: #00d8ff;
+    cursor: default;
+    font-size: 15px;
+    font-weight: 500;
+    font-family: 'Poppins', sans-serif;
+    text-transform: capitalize;
+
+    width: 150px;
+    height: 48px;
+
+    border-color: transparent;
+  }
+
+  .bouton:hover{
+    color: rgb(0, 0, 0);
+    background: rgb(221, 218, 218, 0.383); 
+    border-color: transparent;
+  }
+
+  
+  .bouton:focus{
+    color: rgb(0, 0, 0);
+    background: rgb(221, 218, 218, 0.383); 
+    border-color: transparent;
+  }
+  .inputt{
+    font-family:'Poppins', sans-serif;
+    font-size: 17px;
+    font-weight:500;
+    
+    
+    margin-bottom: 18px;
+   
+  }
+
+  .sld{
+
+    display: flex;
+    flex-direction: row;
+    margin-top: 80px;
+    margin-bottom: 0px;
+    margin-left: 40px;
+    width: 500px;
+  }
+
+  .ng5-slider .ng5-slider-pointer {
+    
+    background-color: #00d8ff !important;
+    font-family: 'Poppins', sans-serif;
+  }
+
+
+
+
+
+
+  .example-right-align {
+    text-align: right;
+  }
+  
+  input.example-right-align::-webkit-outer-spin-button,
+  input.example-right-align::-webkit-inner-spin-button {
+    display: none;
+  }
+  
+  input.example-right-align {
+    -moz-appearance: textfield;
+  }
+
+  .inputtsld{
+
+    font-family:'Poppins', sans-serif;
+    font-size: 17px;
+    font-weight:500;
+    
+    margin-right: 40px;
+    margin-bottom: 0px;
+    margin-top: 21px;
+  }
