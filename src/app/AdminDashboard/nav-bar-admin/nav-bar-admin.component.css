@@ -1,0 +1,16 @@
+
+.dropdown-item:hover{
+
+    cursor: pointer;
+        background: -webkit-linear-gradient(left, #dfd5e4, #7b7bda);
+
+}
+
+img{
+   cursor: pointer;
+}
+
+.fa {
+
+   cursor: pointer;
+}

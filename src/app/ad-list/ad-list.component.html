@@ -1,0 +1,268 @@
+<div #come class="carou">
+    <ngb-carousel>
+        <ng-template ngbSlide class="parallaxx">
+          <img  src="../../assets/pic/MAIN-IMAGE.jpg" alt="Random first slide">
+          <div class="carousel-caption">
+            
+          </div>
+        </ng-template>
+        <ng-template ngbSlide>
+          <img src="../../assets/pic/photo-1558036117-15d82a90b9b1.jfif" alt="Random second slide">
+          <div class="carousel-caption">
+            
+          </div>
+        </ng-template>
+        <ng-template ngbSlide>
+            <img src="../../assets/pic/3.jpg" alt="Random first slide">
+            <div class="carousel-caption">
+              
+            </div>
+          </ng-template>
+        
+      </ngb-carousel>
+  </div>
+
+
+  <!-- 
+    +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    ++++++++++++++++++++++++END CARROUSEL++++++++++++++++++++++++++++++++
+    +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  -->
+
+  <div class="dataviewCont">
+    
+    <p-dataView #dv [value]="products2" [paginator]="true" [rows]="9" filterBy="title" 
+        [sortField]="sortField" [sortOrder]="sortOrder" layout="grid">
+        <ng-template pTemplate="header">
+            <div class="p-d-flex p-flex-column p-flex-md-row p-jc-md-between">
+                <p-dropdown [options]="sortOptions" [(ngModel)]="sortKey"
+                 placeholder="Sort By Price" (onChange)="onSortChange($event)" styleClass="p-mb-2 p-mb-md-0"></p-dropdown>
+                <span class="p-input-icon-left p-mb-2 p-mb-md-0">
+                    <i class="pi pi-search"></i>
+                    <input type="search" pInputText placeholder="Search by Name" (input)="dv.filter($event.target.value)">
+                </span>
+                <p-dataViewLayoutOptions></p-dataViewLayoutOptions>
+            </div>
+        </ng-template>
+
+
+
+
+
+        <ng-template let-product pTemplate="gridItem">
+            
+            <div class="bod">
+                <div class="container">
+                    <div class="card">
+                        <div class="imgBx">
+                            
+                                        <img class="imglist" [src]='product.imgdesc[0].data' /> 
+                                
+                        </div>
+                        <div class="content">
+                            
+                            <span class="hx">{{product.adresse.location}}</span>
+                            <hr>
+                            <h3> {{product.title}} </h3>
+                            <p class="desc">{{product.description}}</p>
+                            <div class="hx">{{product.date }}</div>
+                        <div class="hx">Surface:   {{product.surface }} m²</div>
+                        <h4> <i class="pi pi-phone" style="font-size: 1.5rem"></i> : {{product.phoneNumber}}</h4>
+                        <span class="product-price">{{product.prixEstim}}.Tnd</span>  
+                        <p-rating [ngModel]="product.nbrPieces" [readonly]="true" [cancel]="false"></p-rating>
+                              
+                        <div class="bott">
+                                    
+                                    <p-button data-toggle="modal" data-target="#exampleModal" (onClick)='btndetails(product)'(click)="open(content)" title="details" style="margin-top:20px"> 
+                                        <i class="pi pi-images " style="margin-right:7px"></i> details</p-button>
+                                        
+                                
+                                </div>
+                        </div>
+                    </div>
+                </div>
+                
+             </div>
+             <!--
+             <div class="p-col-12 p-md-4">
+                <div class="product-grid-item card">
+                    <div class="product-grid-item-top">
+                        <div>
+                            <i class="pi pi-tag product-category-icon"></i>
+                            <span class="product-category">{{product.title}}</span>
+                        </div>
+                       <span class="status">{{product.adresse.location}}</span>
+                    </div>
+                    <div class="product-grid-item-content">
+                        <div class="product-name">{{product.name}}</div>
+                        <div class="product-descriptionTrue">{{product.description}}</div>
+                        <div class="product-descriptionImg"><img class="img" [src]='imageToShow' /> </div>
+                        <div class="product-description">{{product.date}}</div>
+                        <div class="product-description">Surface:   {{product.surface}} m²</div>
+                        <div class="product-description"> <i class="pi pi-phone" style="font-size: 1.5rem"></i> : {{product.phoneNumber}}</div>
+                        <p-rating [ngModel]="product.nbrPieces" [readonly]="true" [cancel]="false"></p-rating>
+                    </div>
+                    <div class="product-grid-item-bottom">
+                        <span class="product-price">{{product.prixEstim}}.Tnd</span>
+                        <p-button [disabled]="product.adresse.location === 'ARIANA'" title="details" style="margin-top:20px"> <i class="pi pi-images " style="margin-right:7px"></i> details</p-button>
+                    </div>
+                </div>
+            </div>
+
+        -->
+        </ng-template>
+
+
+
+
+
+
+
+
+
+
+        <ng-template let-product pTemplate="listItem">
+            <div class="p-col-12">
+                <div class="product-list-item">
+                    <div class="product-list-detail">
+                        <div class="namelist" >{{product.name}}</div>
+                        <div class="product-descriptionTrue">{{product.description}}</div>
+                        <div class="product-descriptionImg"><img class="imglist" [src]='product.imgdesc[0].data' /> </div>
+                        <div class="product-description">{{product.date}}</div>
+                        <div class="product-description">Surface:   {{product.surface}} m²</div>
+                        <div class="product-description"> <i class="pi pi-phone" style="font-size: 1.5rem"></i> : {{product.phoneNumber}}</div>
+                        <p-rating [ngModel]="product.nbrPieces" [readonly]="true" [cancel]="false"></p-rating>
+                    </div>
+                    <div class="product-list-action">
+                        <span class="product-price">{{product.prixEstim}}.Tnd</span>
+                        <p-button [disabled]="product.adresse.location === 'ARIANA'" title="details" style="margin-top:20px"> 
+                            <i  style="margin-right:7px"></i> details</p-button>
+                    
+                       
+                       <!-- <span [class]="'product-badge status-' + product.inventoryStatus.toLowerCase()">{{product.inventoryStatus}}</span>-->
+                    </div>
+                </div>
+            </div>
+        </ng-template>
+
+
+        
+        <!-- let-'Nom de variable de parcours ' -->
+        
+    </p-dataView>
+
+</div>
+
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+****************** MODAL pour les details ++++++++++++++++++++++++++
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+
+
+<ng-template #content let-c="close" let-d="dismiss">
+    <div class="modal-header">
+      <h4 class="modal-title" style="margin: 30px;">Ad details</h4>
+      <button type="button" class="btn btn-secondary" style="background-color: rgb(197, 197, 197); padding: 10px;"(click)="c('Close click')" >X</button>
+    </div>
+
+
+    <div #abs class="modal-body">
+        <div class="containerModal">
+            
+                <!--
+                <div class="content">
+                    
+                    <span class="hx">{{details.adresse.location}}</span>
+                    <hr>
+                    <h3> {{details.title}} </h3>
+                    <br>
+                    <br>
+                    <div class="imgBx">
+                    
+                        <img class="imgBx1" [src]='details.imgdesc[0].data' /> 
+                
+                    </div>
+                    <p class="desc">{{details.description}}</p>
+                    <div class="hx">{{details.date }}</div>
+                    <div class="hx">Surface:   {{details.surface }} m²</div>
+                    <h4> <i class="pi pi-phone" style="font-size: 1.5rem"></i> : {{details.phoneNumber}}</h4>
+                    <span class="product-price">{{details.prixEstim}}.Tnd</span>  
+                    <p-rating [ngModel]="details.nbrPieces" [readonly]="true" [cancel]="false"></p-rating>
+                      
+                
+                </div>
+                -->
+
+                <div class="xzoom-container" >
+                    
+                    <div class="zoomMainimg">
+                            <lib-ngx-image-zoom
+                                [thumbImage]=myThumbnail
+                                [fullImage]=myThumbnail
+                                [magnification]="2"
+                                [enableScrollZoom]="true"
+                                [enableLens]="true"
+                                [lensWidth]="600"
+                                [lensHeight]="400">
+                                [resultStyle]="'widh:400px;height:400px'"
+                            </lib-ngx-image-zoom>
+                    </div>
+                    
+                            <div class="xzoom-thumbs">
+                                
+                                <img src="{{myFullresImage}}" alt=""(click)="showimg0()">
+                                
+                                    <img src="../../assets/4.jpg" alt="" id="thumbImg" (click)="showimg1()">
+                            
+                                
+                                    
+                                
+                                
+                                    <img src="../../assets/11.jpg" alt="">
+                            
+                            
+                                    <img src="../../assets/19.jpg" alt="">
+                                
+                            
+                            </div>
+                
+                </div>
+            
+                <div class="description">
+                    <h1>{{details.title}} </h1>
+                    <p class="desc">{{details.description}}</p>
+                    <div class="hx">{{details.date }}</div>
+                    <div class="hx"><b>Surface:&nbsp;</b>   {{details.surface }} m²</div>
+                    <h4> <b>Phone</b> : {{details.phoneNumber}}</h4>
+                    <span class="product-price"><b>Estimated Price:&nbsp;</b>{{details.prixEstim}}&nbsp;Tnd</span> <br>  
+                    <span class="product-price"><b>Price:&nbsp;</b>{{details.prix}}&nbsp;Tnd</span> 
+                    <p-rating [ngModel]="details.nbrPieces" [readonly]="true" [cancel]="false"></p-rating>
+                    <div class="maps">
+                        <agm-map [latitude]="lat" [longitude]="lng">
+                            <agm-marker [latitude]="lat" [longitude]="lng"
+        
+                            ></agm-marker>
+                    </agm-map>
+                    <div class="bod">
+                        <div class="containerCom">
+                            
+                            <input #comm type="text" aria-rowcount="5" placeholder=" Enter comment" id="comment"> 
+                            <button (click)='add()' style="float: right;">Submit</button>
+                            
+                            </div>
+                            <ul #lili class="listee"></ul>
+                    </div>
+                
+                </div>
+                    
+                </div>
+            </div>
+        </div>
+    
+
+
+    <div class="modal-footer">
+      <!-- <button type="button" class="btn btn-secondary" (click)="c('Close click')">Close</button>-->
+      <br>
+    </div>
+ </ng-template>

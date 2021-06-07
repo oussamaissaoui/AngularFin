@@ -1,0 +1,168 @@
+<div class="page-wrapper">
+    <div class="content">
+        <div class="row">
+            <div class="col-sm-4 col-3">
+                <h4 class="page-title">Search</h4>
+            </div>
+            <div class="col-sm-8 col-9 text-right m-b-20">
+                
+            </div>
+        </div>
+        <div class="row filter-row">
+            <div class="BoxContainer">
+                <table class="elementsContainer">
+                    <tr>
+    
+                        <td>
+    
+                            <input class="text" placeholder="Search" class="search"   [(ngModel)]="userName" (ngModelChange)='search()'>
+                        </td>
+    
+                        <td>
+                            <a><i class="fa fa-search" aria-hidden="true"></i></a>
+                        </td>
+                    </tr>
+    
+                </table>
+    
+    
+            </div>
+    
+            <pagination-controls (pageChange)="p = $event"></pagination-controls>
+            </div>
+             <br>
+        
+        <div class="row">
+            <div class="col-md-12">
+                <div class="table-responsive">
+                    <table class="table table-striped custom-table" >
+                        <thead [hidden]="verifeySorting" >
+                            <tr >
+                                <th>Picture</th>
+                                <th>UserName</th>
+                                <th >NbrPieces</th>
+                                <th>Description</th>
+                                <th>date</th>
+                                <th >Favorite</th>
+                                <th class="fa fa-sort" (click)="sortingByDistanceUp()">Location</th>
+                                <th >Num_Tel</th>
+                                <th>Price_Estim</th>
+                                <th >Views_number</th>
+                                
+                                <th>Action</th>
+                       
+                        </thead>
+
+
+                        <tbody [hidden]="verifeySorting" *ngFor="let user of listAds ">
+
+                            <tr *ngFor="let ad of user.ads  | paginate: {itemsPerPage:1,currentPage:p}" class="animated fadeInDown" >
+                                <td><img width="40" height="35" src="assets/uploads/{{user.picture}}" 
+                                    class="rounded-circle m-r-8" alt=""></td>
+                                <td> {{user.userName}}</td>
+                                <td>{{ad.nbrPieces}}</td>
+                                <td>{{ad.description}}</td>
+                                <td>{{ad.date |  date:'dd-MM-yyyy HH:mm'}}</td>
+                                <td>
+                                    <span *ngIf="ad.furnished" class="custom-badge status-green">{{ad.favorite}}</span>
+                                    <span *ngIf="!ad.furnished" class="custom-badge status-red">{{ad.favorite}}</span>
+                                </td>
+                                <td>{{ad.adresse.location}}</td> 
+                                <td>{{ad.adresse.numTel}}</td>
+                                <td>{{ad.prixEstim}}</td>
+                                <td class="center">{{ad.viewsNumber}}</td>
+                              
+
+                           <td class="items">
+                                   
+
+                            <a class="dropdown-item"  data-toggle="modal" 
+                            (click)="getIdAd(ad.idAd)"
+                             data-target="#delete_employee">
+
+                             <img width="27" height="21" src="../../../../assets//icons8-delete-bin-64.png" 
+                             class="rounded-circle m-r-8" alt="">
+
+                            </a>
+                      
+                        </td>
+                            </tr>
+                          
+                         
+                        </tbody>
+
+                        <!--sortiiiiiiiiiiiiiiiiiiiiiiiiiiiiiing by distance eli a9rabli ena en tant que user -->
+
+                        <thead [hidden]="!verifeySorting" >
+                            <tr >
+                                
+                                <th >Area</th>
+                                <th>Description</th>
+                                <th>End date</th>
+                                <th >Furnished</th>
+                                <th class="fa fa-arrow-left" (click)="sortingByDistanceDown()">Location</th>
+                                <th >Start Date</th>
+                                <th>Price</th>
+                                <th >Views_number</th>
+                                
+                                <th>Action</th>
+                       
+                        </thead>
+
+                        <tbody [hidden]="!verifeySorting" 
+                        *ngFor="let ad of listSortingAdsDistance  | paginate: {itemsPerPage:5,currentPage:p} ">
+
+                            <tr class="animated fadeInDown" >
+                               
+                                <td>{{ad.area}}</td>
+                                <td>{{ad.description}}</td>
+                                <td>{{ad.endDate}}</td>
+                                <td>
+                                    <span *ngIf="ad.furnished" class="custom-badge status-green">{{ad.furnished}}</span>
+                                    <span *ngIf="!ad.furnished" class="custom-badge status-red">{{ad.furnished}}</span>
+                                </td>
+                                <td>{{ad.location}}</td> 
+                                <td>{{ad.startDate}}</td>
+                                <td>{{ad.price}}</td>
+                                <td class="center">{{ad.viewsNumber}}</td>
+                              
+
+                           <td class="items">
+                                   
+
+                            <a class="dropdown-item"  data-toggle="modal" 
+                            (click)="getIdAd(ad.idAd)"
+                             data-target="#delete_employee">
+
+                             <img width="27" height="21" src="../../../../assets//icons8-delete-bin-64.png" 
+                             class="rounded-circle m-r-8" alt="">
+
+                            </a>
+                      
+                        </td>
+                            </tr>
+                          
+                         
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div id="delete_employee" class="modal fade delete-modal" role="dialog">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                <img src="../../../assets/sent.png" alt="" width="50" height="46">
+                <h3>Are you sure want to delete this Ads?</h3>
+                <div class="m-t-20"> <!--<a class="btn btn-white" data-dismiss="modal">Close</a>-->
+                    <button type="submit" class="btn btn-danger" data-dismiss="modal" 
+                    (click)=" deleteAdById()">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

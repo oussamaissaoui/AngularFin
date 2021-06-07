@@ -1,0 +1,112 @@
+<div class="page-wrapper animated fadeInDown">
+    <div class="content">
+        <div class="row">
+            <div class="col-sm-12">
+                <h4 class="page-title">Edit Profile</h4>
+            </div>
+        </div>
+        <form [formGroup]="registerForm">
+            <div class="card-box">
+                <h3 class="card-title">Basic Informations</h3>
+              
+                    <div class="col-md-12">
+                        <div class="profile-img-wrap">
+                            <img class="inline-block" sizes="100mb"
+                            src="assets/uploads/{{user.picture}}" alt="user">
+                            <div class="fileupload btn">
+                                <span class="btn-text">edit</span>
+                                <input class="upload" (change)="selectFile($event)"  type="file">
+                            </div>
+                        </div>
+                        <div class="profile-basic">
+                            <div class="row">
+                                <div class="col-md-6">
+                                  
+                                        <input type="text" class="form-control floating" 
+                                         formControlName="firstName" [(ngModel)]="user.firstName" 
+                                         name="firstName" 
+                                        [ngClass]="{ 'is-invalid': f.firstName.errors }" value="">
+                                        <div *ngIf="f.firstName.errors" class="invalid-feedback">
+                                            <div *ngIf="f.firstName.errors.required" class="animated fadeInRightBig">firstname is required</div>
+                                        </div>
+                                     
+                                </div>
+                                 
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control floating" style="color:blue;"
+                                    formControlName="lastName" [(ngModel)]="user.lastName" 
+                                    name="lastName" 
+                                   [ngClass]="{ 'is-invalid': f.lastName.errors }" value="">
+                                   <div *ngIf="f.lastName.errors" class="invalid-feedback">
+                                       <div *ngIf="f.lastName.errors.required" class="animated fadeInRightBig">
+                                           lastname is required</div>
+                                   </div>
+                                </div><br><br><br>
+
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control floating" 
+                                    formControlName="dateNaissance" [(ngModel)]="user.dateNaissance" 
+                                    name="dateNaissance" 
+                                   [ngClass]="{ 'is-invalid': f.dateNaissance.errors }" value="">
+                                   <div *ngIf="f.dateNaissance.errors" class="invalid-feedback">
+                                       <div *ngIf="f.dateNaissance.errors.required" class="animated fadeInRightBig">
+                                        dateNaissance is required</div>
+                                   </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control floating" 
+                                    formControlName="email" [(ngModel)]="user.email" 
+                                    name="email" 
+                                   [ngClass]="{ 'is-invalid': f.email.errors }" value="">
+                                   <div *ngIf="f.email.errors" class="invalid-feedback">
+                                       <div *ngIf="f.email.errors.required" class="animated fadeInRightBig">
+                                        email is required</div>
+                                   </div>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+            </div>
+            <div class="card-box">
+                <h3 class="card-title">Contact Informations</h3>
+          
+                    <div class="col-md-8">
+                        <input type="text" class="form-control floating" 
+                        formControlName="lieu" [(ngModel)]="user.lieu" 
+                        name="lieu" 
+                       [ngClass]="{ 'is-invalid': f.lieu.errors }" value="">
+                       <div *ngIf="f.lieu.errors" class="invalid-feedback">
+                           <div *ngIf="f.lieu.errors.required" class="animated fadeInRightBig">
+                            location is required</div>
+                       </div>
+                    </div><br>
+                
+                   
+                    
+                    <div class="col-md-8">
+                        <input type="text" class="form-control floating" 
+                        formControlName="phoneNumber" [(ngModel)]="user.phoneNumber" 
+                        name="phoneNumber" 
+                       [ngClass]="{ 'is-invalid': f.phoneNumber.errors }" value="">
+                       <div *ngIf="f.phoneNumber.errors" class="invalid-feedback">
+                           <div *ngIf="f.phoneNumber.errors.required" class="animated fadeInRightBig">
+                            phoneNumber is required</div>
+                       </div>
+                    </div>
+                </div>
+     
+            
+            <div class="text-center m-t-20">
+
+                <a  (click)="Save()">
+
+                    <span>Save</span>
+                    <div class="liquid"></div>
+                      
+                 </a>
+                <!--<a class="btn btn-primary submit-btn" (click)="Save()">Save</a>-->
+            </div>
+        </form>
+    </div>
+</div>
+

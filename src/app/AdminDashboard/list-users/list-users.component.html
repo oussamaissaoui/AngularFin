@@ -1,0 +1,113 @@
+<div class="page-wrapper">
+    <div class="content">
+        <div class="row">
+            <div class="col-sm-4 col-3">
+                <h4 class="page-title">Search</h4>
+            </div>
+            <div class="col-sm-8 col-9 text-right m-b-20">
+                <a routerLink="/dashborad/admin/add-users" class="btn btn-primary float-right btn-rounded">
+                    <i class="fa fa-user-plus"></i> Add user</a>
+            </div>
+        </div>
+
+        <div class="row filter-row">
+        <div class="BoxContainer">
+            <table class="elementsContainer">
+                <tr>
+
+                    <td>
+
+                        <input class="text" placeholder="Search" class="search"   [(ngModel)]="userName" (ngModelChange)='search()'>
+                    </td>
+
+                    <td>
+                        <a><i class="fa fa-search" aria-hidden="true"></i></a>
+                    </td>
+                </tr>
+
+            </table>
+
+
+        </div>
+
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+        </div>
+         <br>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="table-responsive">
+                    <table class="table table-striped custom-table" >
+                        <thead >
+                            <tr >
+                                <th>Picture</th>
+                                <th style="min-width:100px;">Username</th>
+                                <th>FirstName</th>
+                                <th>LastName</th>
+                                <th class="email">Email</th>
+                                <th>Mobile</th>
+                                <th style="min-width: 110px;">Birth Date</th>
+                                <th>Role</th>
+                                <th>Status</th>
+                                
+                                <th class="text-right">Action</th>
+                            </tr>
+                        </thead>
+
+                        <tbody *ngFor="let user of listNewUsers | paginate: {itemsPerPage:4,currentPage:p}">
+                            <tr class="animated fadeInDown" >
+
+                                <td><img width="37" height="34" src="assets/uploads/{{user.picture}}" 
+                                    class="rounded-circle m-r-8" alt=""> </td>
+                                 <td>{{user.userName}}</td>
+                                <td>{{user.firstName}}</td>
+                                <td>{{user.lastName}}</td>
+                                <td>{{user.email}}</td>
+                                <td>{{user.phoneNumber}}</td>
+                                <td>{{user.dateNaissance}}</td>
+                                <td>
+                                    <span class="custom-badge status-green">{{user.role}}</span>
+                                </td>
+                           <td *ngIf="!user.block"><span  class="custom-badge status-red">Inactive</span></td>
+                           <td  *ngIf="user.block"><span  class="custom-badge status-green">Active</span></td>
+
+
+                                <td class="items">
+                                   
+
+                                            <a class="dropdown-item" (click)="getIdUser(user.id)" 
+                                            routerLink="/dashborad/admin/edit-users">
+                                            <img width="27" height="21" src="../../../assets/icons8-edit (1).gif" 
+                                            class="rounded-circle m-r-8" alt=""></a>
+
+                                            <a class="dropdown-item"  data-toggle="modal" 
+                                            (click)="getIdUser(user.id)"
+                                             data-target="#delete_employee">
+                                             <img width="27" height="21" src="../../../assets/icons8-delete-48.png" 
+                                                class="rounded-circle m-r-8" alt=""> </a>
+                                      
+                                </td>
+                            </tr>
+                          
+                         
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div id="delete_employee" class="modal fade delete-modal" role="dialog">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                <img src="../../../assets/sent.png" alt="" width="50" height="46">
+                <h3>Are you sure want to delete this Employee?</h3>
+                <div class="m-t-20"> <!--<a class="btn btn-white" data-dismiss="modal">Close</a>-->
+                    <button type="submit" class="btn btn-danger" data-dismiss="modal" 
+                    (click)="deleteUserById()">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

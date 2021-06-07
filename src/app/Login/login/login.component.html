@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>How to Design Login & Registration Form Transition</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700,800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  
+
+  <div class="cont animated fadeInLeftBig" style="object-fit: contain;"  >
+
+
+    <form [formGroup]="LoginForm" >
+
+    <div class="form sign-in">
+      <h2>Sign In</h2>
+
+      <label>
+     
+        <input type="text" id="email" formControlName="email" placeholder="Email" class="form-control" [ngClass]="{ 'is-invalid': submitted && M.email.errors }" />
+        <div *ngIf="submitted && M.email.errors" class="invalid-feedback">
+            <div *ngIf="M.email.errors.required" class="animated fadeInRightBig">email is required</div>
+        </div>
+      </label>
+      <label>
+        <input type="password" formControlName="password" placeholder="Password" class="form-control" [ngClass]="{ 'is-invalid': submitted && M.password.errors }" />
+        <div *ngIf="submitted && M.password.errors" class="invalid-feedback">
+            <div *ngIf="M.password.errors.required" class="animated fadeInRightBig">password is required</div>
+          
+        </div>
+      </label>
+
+      <button class="submit" data-toggle="modal" 
+
+      data-target="#delete_employee"  id="open-popup" (click)="login()" type="button">Sign In</button>
+      
+  
+   <div *ngIf="show==true" class="recaptcha animated  fadeInRightBig "  >
+     <re-captcha class="g-recaptcha" 
+     (resolved)="resolved($event)" siteKey="6LehJlwaAAAAACG8XXx0cuV8yzNWUaoYjpaT0wSx"> <!--nekteb email mdp bel ghalet-->
+  
+    </re-captcha>
+    </div>
+
+
+
+    <div class="link">
+      <p class="forgot-pass" routerLink="/login/forgetPassword" >Forgot Password ?</p> &nbsp;&nbsp;&nbsp;
+
+    </div>
+
+      <div class="social-media">
+        <ul>
+          <li (click)="loginWithFacebook()"><img class="animated infinite pulse" src="../../../assets/facebook.png"></li>
+          <li (click)="loginWithGoogle()"><img class="animated infinite pulse" src="../../../assets/google.png"></li>
+     
+        </ul>
+      </div> <br>
+
+      
+
+      <p class="text-success " id="messageDebloqueUser">{{messageDebloqueUser}}</p>
+
+    </div>
+    </form>
+  
+
+    <div class="sub-cont">
+      <div class="img">
+        <div class="img-text m-up">
+          <h2>New here?</h2>
+          <p>Sign up and discover great amount of new opportunities!</p>
+        </div>
+        <div class="img-text m-in">
+          <h2>One of us?</h2>
+          <p>If you already has an account, just sign in. We've missed you!</p>
+        </div>
+
+        <div class="img-btn" (click)="clearInput()">
+          <span  class="m-up">Sign Up</span>
+          <span  class="m-in">Sign In</span>
+        </div>
+      </div>
+
+      <form [formGroup]="registerForm">
+
+      <div class="form sign-up">
+        <!--<h1>Sign Up</h1>-->
+        
+        <label>
+        
+            <input type="text" formControlName="userName" placeholder="Username" class="form-control" 
+            [ngClass]="{ 'is-invalid': Change && f.userName.errors }" />
+            <div *ngIf="Change && f.userName.errors" class="invalid-feedback">
+                <div *ngIf="f.userName.errors.required" class="animated fadeInRightBig">Username is required</div>
+            </div>
+        </label>
+        <label>
+          
+            <input type="text" formControlName="email"  required class="form-control" placeholder="Email"   [ngClass]="{ 'is-invalid': Change && f.email.errors }" />
+            <div *ngIf="Change && f.email.errors" class="invalid-feedback">
+                <div *ngIf="f.email.errors.required" class="animated fadeInRightBig">email is required</div>
+                <div *ngIf="f.email.errors.pattern" class="animated fadeInRightBig">Not Valid Email</div>
+               
+            </div>
+        </label>
+        <label>
+         
+            <input type="password" placeholder="Password" formControlName="password" class="form-control"
+             [ngClass]="{ 'is-invalid': Change && f.password.errors }" />
+            <div *ngIf="Change && f.password.errors" class="invalid-feedback">
+                <div *ngIf="f.password.errors.required" class="animated fadeInRightBig">Password is required</div>
+                <div *ngIf="f.password.errors.minlength" class="animated fadeInRightBig">Password must be at least 6 characters</div>
+            </div>
+        </label>
+        <label>
+         
+            <input type="password" formControlName="ConfirmPassword" placeholder="Confirm Password" 
+            class="form-control" [ngClass]="{ 'is-invalid': Change && f.ConfirmPassword.errors }" />
+            <div *ngIf="Change && f.ConfirmPassword.errors" class="invalid-feedback">
+                <div *ngIf="f.ConfirmPassword.errors.required" class="animated fadeInRightBig">Password is required</div>
+                <div *ngIf="f.ConfirmPassword.errors.minlength" class="animated fadeInRightBig">Password must be at least 6 characters</div>
+                <div *ngIf="registerForm.controls.ConfirmPassword.invalid" class="animated fadeInRightBig"> Password and confirm password should match</div>
+            </div>
+        </label>
+        <label>
+         
+            <input type="date" placeholder="Date Naissance" formControlName="dateNaissance"
+             class="form-control" [ngClass]="{ 'is-invalid': Change && f.dateNaissance.errors }" />
+            <div *ngIf="Change && f.dateNaissance.errors" class="invalid-feedback">
+                <div *ngIf="f.dateNaissance.errors.required" class="animated fadeInRightBig">Date is required</div>
+               
+            </div>
+        </label>
+        <label>
+         
+          <input type="tel" placeholder="+  Phone Number"  formControlName="phoneNumber"
+           class="form-control" [ngClass]="{ 'is-invalid': Change && f.phoneNumber.errors }" 
+           pattern="[+]{1}[0-9]{11,14}" />
+          <div *ngIf="Change && f.phoneNumber.errors" class="invalid-feedback">
+              <div *ngIf="f.phoneNumber.errors.required" class="animated fadeInRightBig">Phone Number is required</div>
+              <div *ngIf="f.phoneNumber.errors.pattern" class="animated fadeInRightBig">Invalid phone Number</div>
+             
+          </div>
+      </label>
+      <label>
+         
+        <input type="text" placeholder="Location" formControlName="lieu" class="form-control" [ngClass]="{ 'is-invalid': Change && f.lieu.errors }" />
+        <div *ngIf="Change && f.lieu.errors" class="invalid-feedback">
+            <div *ngIf="f.lieu.errors.required" class="animated fadeInRightBig">Location is required</div>
+            
+        </div>
+    </label>
+    
+      
+     
+         
+        <label>
+          <input type="file" (change)="selectFile($event)" class="upload-box">
+         
+        </label>
+       
+        <button type="button" (click)="onSubmit()" id="open-popup-register" 
+         [disabled]="this.registerForm.value.password == null && this.registerForm.value.userName == null
+        && this.registerForm.value.email == null && this.registerForm.value.ConfirmPassword == null" 
+        class="submit">Sign Up Now</button>
+      </div>
+    </form> 
+    </div>
+  </div>
+
+
+
+      
+
+</body>
+</html>
+
+
+<div class="center"  >
+</div>
+
+<div [hidden]="!verifey" class="popup animated fadeInDown" >
+  <div class="head" [ngStyle]="{'background-color':(messageRegisterSuccess != null) ? '#32CD32' : '#FF0000' }">
+    <div class="icon">
+      <div class="box">
+       <img *ngIf="messageRegisterSuccess == null" src="../../../assets/cancel.png">
+       <img *ngIf="messageRegisterSuccess != null" src="../../../assets/checked.png">
+      </div>
+    </div>
+  </div>
+  <div  class="body">
+    <h1 *ngIf="messageRegisterSuccess == null"  class="animated infinite bounce" >Failed</h1>
+    <h1 *ngIf="messageRegisterSuccess != null" class="animated infinite bounce">Success</h1>
+
+       <p *ngIf="messageLogin" class="text-danger" > Message Error : {{messageLogin }} </p>
+       <p  *ngIf="messageRegisterFailed" class="text-danger"> Message Error : {{messageRegisterFailed }} </p>
+       <p  *ngIf="messageRegisterSuccess" class="text-success"> Message Success : {{messageRegisterSuccess }} </p>
+       
+    <button class="close-btn "  (click)="changeStatusOfVerifey()">&times; Close</button>
+  </div>
+
+
+ 
+
+
+   

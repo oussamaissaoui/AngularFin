@@ -1,0 +1,158 @@
+
+      
+
+
+
+
+
+
+
+
+<div class="container2">
+    <div class="box">
+       
+        <mat-tab-group animationDuration="500ms" >
+     
+            <mat-tab label="Sell" class="grp">
+                <div class="form">
+                    <h2>Search for an Ad</h2>
+                    <form [formGroup]="firstFormGroup">
+                        <div class="inputBox">
+                            <mat-form-field appearance="fill">
+                                <mat-label class="surf">Region</mat-label> 
+                                <mat-select formControlName="Region"  panelClass="my-select-panel">
+                                  <mat-option class="paneloption" *ngFor="let region of regions" [value]="region.value">
+                                    {{region.viewValue}}
+                                  </mat-option>
+                                </mat-select>
+                              </mat-form-field>
+                        </div>
+                        <div class="inputBox">
+                            <mat-form-field appearance="fill">
+        
+                                <mat-label class="surf">Rooms Number</mat-label>
+                            
+                                <input matInput type="number" class="example-right-align" formControlName="RoomsNumber" min="1" max="20">
+                                
+                                
+                                <mat-error>Min Number: 1</mat-error>
+                                
+                              </mat-form-field>
+                        </div>
+                        <div class="inputBox">
+                            <mat-form-field appearance="fill">
+                            
+                                <mat-label class="surf">Surface</mat-label>
+                                <input matInput type="number" class="example-right-align" formControlName="Surface" min="20" max="20000">
+                                
+                                <span matSuffix class="surf">/m²</span>
+                                <mat-error>Min Surface: 20m²</mat-error>
+                                
+                              </mat-form-field>
+                        </div>
+                        
+                        <div class="inputBoxRow">
+                            <mat-label class="n5Span">Price</mat-label>  
+                      <ng5-slider style="margin-top:55px" [(value)]="minValue" [(highValue)]="maxValue" [options]="options"></ng5-slider>
+                        </div>
+                        
+                        <div class="inputBox">
+                            
+                            <input type="submit" (click)="onSubmit()" (click)="Req()" (click)="open(content)" placeholder="Region" value="SEARCH">
+                        </div>
+                    </form>
+                </div>
+                
+                
+               
+            </mat-tab>
+            
+            
+            <mat-tab label="Rent">Content 2</mat-tab>
+            
+            
+            <mat-tab label="Furniture">Content 3</mat-tab>
+          
+        </mat-tab-group>
+    
+   
+    
+    </div>
+    
+</div>
+
+
+
+<!-- 
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////MODAL ANNONCES/////////////////////////////////////////////////////////////////
+-->
+
+
+<ng-template #content let-c="close" let-d="dismiss" class="aaa" >
+    
+    
+    <div class="modal-header">
+      <h4 class="modal-title" style="margin: 3px;">Ad details</h4>
+      <button type="button" class="btn btn-secondary" style="background-color: rgb(197, 197, 197);"(click)="c('Close click')" >X</button>
+    </div>
+
+
+    <div class="modal-body">
+        <div class="containerModal"></div>
+            <p-dataView #dv [value]="annonces" [paginator]="true" [rows]="6"  layout="grid">
+                             
+                        
+                        
+                        
+                        
+                        
+                <ng-template let-product pTemplate="gridItem">
+                    
+                    <div class="bod">
+                        <div class="container">
+                            <div class="card">
+                                <div class="imgBx">
+                                    <img [src]='product.imgdesc[0].data' alt=" ">
+                                    <!--
+                                    <h3>{{annonce.title}}</h3>
+                                    -->
+                                </div>
+                                <div class="contentBx">
+                                    <div class="content">
+                                        <span class="hx3">{{product.adresse.location}}</span>
+                                        <h3> {{product.title}} </h3>
+                                        <p class="desc">{{product.description}}</p>
+                                        <div class="hx">{{product.date }}</div>
+                            <div class="hx">Surface:   {{product.surface }} m²</div>
+                            <h4> <i class="pi pi-phone" style="font-size: 1.5rem"></i> : {{product.phoneNumber}}</h4>
+                            <span class="product-price">{{product.prixEstim}}.Tnd</span>  
+                            <p-rating [ngModel]="product.nbrPieces" [readonly]="true" [cancel]="false"></p-rating>
+                                
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                     </div>
+                    
+                </ng-template>
+        
+                
+            </p-dataView>
+           
+
+            </div>
+       
+    
+        
+         <!--
+            <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" "(click)="c('Close click')">Close</button>
+            <br>
+            </div>-->
+ </ng-template>
+    
+    
+    
+    

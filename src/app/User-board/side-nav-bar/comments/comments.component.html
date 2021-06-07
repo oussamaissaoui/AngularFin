@@ -1,0 +1,35 @@
+
+         <div class="comp">
+            <div class="card bg-secondary shadow">
+              <div class="card-header bg-white border-0">
+                <div class="row align-items-center">
+                  <div class="col-8">
+                    <h3 class="mb-0">My Comments</h3>
+                  </div>
+                 
+                </div>
+              </div>
+              <div class="card-body">
+                <p-table [value]="comments">
+                    <ng-template pTemplate="header">
+                        <tr>
+                            <th>Creation-Date</th>
+                            <th>Description</th>
+                            <th>Status</th>
+                            <th>Number of Likes</th>
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body" let-product>
+                        <tr>
+                            <td>{{product.createdDate}}</td>
+                            <td>{{product.descriptionComment}}</td>
+                            <td>{{product.isBlocked}}</td>
+                            <td>{{product.numberLikes}}</td>
+                        </tr>
+                    </ng-template>
+                </p-table>
+              </div>
+            </div>
+        </div>
+          
+        

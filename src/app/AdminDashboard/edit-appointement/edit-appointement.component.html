@@ -1,0 +1,146 @@
+
+    <div class="page-wrapper">
+        <div class="content">
+            <div class="row">
+                <div class="col-lg-8 offset-lg-2">
+                    <h4 class="page-title">Add Appointment</h4>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 offset-lg-2">
+                    <form [formGroup]="registerForm">
+                        <div class="row">
+                           
+                            <div class="col-md-8">
+                                <div class="form-group">
+                                    <label>User </label>&nbsp;&nbsp;
+                                    <select class="select">
+                                        <option selected>{{userApptName}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Date appointement</label>
+                                   
+                                        <input  type="datetime-local" class="form-control datetimepicker"
+                                        [(ngModel)]="appointement.dateAppointement" 
+                                        formControlName="dateAppointement"
+                                        [ngClass]="{ 'is-invalid':  f.dateAppointement.errors }" >
+                                        <div *ngIf="f.dateAppointement.errors" class="invalid-feedback">
+                                            <div *ngIf="f.dateAppointement.errors.required" 
+                                            class="animated fadeInRightBig">Date is required</div>
+                                           
+                                        </div>
+                                       
+                                </div>
+
+                            </div>
+                           
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label> State</label>
+                                   
+                                    <input  type="text" class="form-control datetimepicker"
+                                    [(ngModel)]="appointement.state" 
+                                    formControlName="state"
+                                    [ngClass]="{ 'is-invalid':  f.state.errors }" >
+                                    <div *ngIf="f.state.errors" class="invalid-feedback">
+                                        <div *ngIf="f.state.errors.required" 
+                                        class="animated fadeInRightBig">State is required</div>
+                                       
+                                    </div>
+                                   
+                                </div>
+                            </div>
+                         
+                        </div>
+                        <div class="form-group">
+                            <label>Justification</label>
+                            
+                            <textarea cols="30" rows="4" class="form-control"
+                            [(ngModel)]="appointement.justification" 
+                            formControlName="justification"
+                            [ngClass]="{ 'is-invalid':  f.justification.errors }" ></textarea>
+                            <div *ngIf="f.justification.errors" class="invalid-feedback">
+                                <div *ngIf="f.justification.errors.required" 
+                                class="animated fadeInRightBig">Justification is required</div>
+                               
+                            </div>
+                           
+                        
+                        </div>
+
+                        <label *ngIf="appointement.purchased">Purchased
+                        <input  type="checkbox"  id="purchased" name="purchased" value="purchased" 
+                        formControlName="purchased"   [(ngModel)]="appointement.purchased" ></label>&nbsp;&nbsp;
+
+                        <label *ngIf="!appointement.purchased">Purchased
+                            <input  type="checkbox"  id="purchased" name="purchased" value="purchased" 
+                            formControlName="purchased"   [(ngModel)]="appointement.purchased" ></label>&nbsp;&nbsp;
+
+                            <label *ngIf="appointement.visibility">Visibility
+                                <input  type="checkbox"  id="visibility" name="visible" value="visibility" 
+                                formControlName="visibility"   [(ngModel)]="appointement.visibility" ></label>&nbsp;&nbsp;
+        
+                                <label *ngIf="!appointement.visibility">Visibility
+                                    <input  type="checkbox"  id="visibility" name="visible" value="visibility" 
+                                    formControlName="visibility"   [(ngModel)]="appointement.visibility" ></label>&nbsp;&nbsp;
+
+
+                   
+                        <div class="m-t-20 text-center">
+                            <!--<button class="btn btn-primary submit-btn"
+                            data-toggle="modal" 
+                                data-target="#delete_appointment"
+                            (click)="onSubmit()">Update Appointment</button>-->
+
+                            <a data-toggle="modal" 
+                            data-target="#delete_appointment"  (click)="onSubmit()">
+ 
+                                <span>Edit App</span>
+                                <div class="liquid"></div>
+                                  
+                             </a>
+                            
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+        <div  *ngIf="messageFaildAppointement != null" id="delete_appointment" class="modal fade delete-modal" role="dialog">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-body text-center">
+                        <img src="../../../assets/subAssets/img/sent.png" alt="" width="50" height="46">
+                        <h3>{{messageFaildAppointement}}</h3>
+                        <div class="m-t-20"> <a href="#" class="btn btn-white" 
+                            (click)="changeStatus()" data-dismiss="modal">Close</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div *ngIf="messageSuccesAppointement != null" id="delete_appointment" class="modal fade delete-modal" role="dialog">
+            <div  class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-body text-center">
+                        <img src="../../../../assets/checked.png" alt="" width="50" height="46">
+                        <h3 >{{messageSuccesAppointement}}</h3>
+        
+                        <div class="m-t-20"> <!--<a class="btn btn-white" data-dismiss="modal">Close</a>-->
+                           <button type="submit" class="btn btn-white" 
+                           (click)="changeStatus()" data-dismiss="modal">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>

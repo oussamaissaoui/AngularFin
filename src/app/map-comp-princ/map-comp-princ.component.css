@@ -1,0 +1,90 @@
+.popUp .leaflet-popup-content-wrapper {
+  background: #e93434;
+  color: #ffffff;
+}
+
+.map-container {
+  height: 250px;
+    position: absolute;
+    z-index: 22;
+    top: 37%;
+    left: 16%;
+    right: 0;
+    bottom: 0;
+    
+    
+  }
+  
+  .map-frame {
+   
+    
+    
+    height: 550px;
+    width: 80%;
+    box-shadow: 10px 10px 10px rgb(201, 199, 199);
+  }
+  
+  #map {
+    height: 100%;
+    width: 100%;
+  }
+
+
+
+
+  .zoomMainimg{
+    max-width: 750px;
+    max-height: 600px;
+    overflow: hidden;
+    
+    
+    
+    box-shadow: 8px 8px 8px rgb(182, 182, 182);
+}
+
+.xzoom-thumbs img{
+  display: inline-block;
+  height: 100px;
+  width: 100px;
+  border: 1px solid #ccc;
+  margin: 5px;
+  cursor:pointer;
+  box-shadow: 8px 8px 8px rgb(182, 182, 182);
+  }
+  
+  .xzoom-thumbs{
+      display: flex;
+      text-decoration: none;
+      justify-content: center;
+      margin-top: 2%;
+  }
+
+  .description{
+    margin-right: 0px;
+    margin-left: 40px;
+}
+
+.containerModal{
+  width: 100%;
+  margin : 6px;
+ 
+  
+  padding: 15px;
+  display: grid;
+  
+  grid-template-columns: 1fr 1fr;
+  overflow: auto;
+  
+  
+  
+}
+::ng-deep.ngxImageZoomThumbnail{
+  max-height: 600px;
+  width: 100%;
+  
+}
+
+.hx{
+  margin-top: 6px;
+  margin-bottom: 6px;
+}

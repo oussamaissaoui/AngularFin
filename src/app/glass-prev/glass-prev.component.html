@@ -1,0 +1,194 @@
+
+
+
+
+<section class="section" id="projects">
+    <header class="title3" >
+        <h2 style="margin-bottom: -120px;">Our <span>Services</span></h2> </header>
+        <p class="title2">We Offer you a selection of  <strong>the best and the finest selection<span>  </span></strong> of the real estate services available on the market</p>
+      
+    
+    <app-home-tilt-selection-card class="title2"></app-home-tilt-selection-card>
+    
+
+    <header class="title">
+        <h2>Our <span>Ads</span></h2>
+        <p>We give you a selection ouf our  <strong>Most Viewed Ads. <br> <span> </span></strong> If you want to see More you can consult our full list of <a href="">ads</a> available on our website</p>
+      </header>
+  <div class="container">
+    <div class="row">
+        <div class="col-lg-3" style=" left: 2px;">
+            <div class="section-heading">
+                <br>
+                <h6>Our Most Viewed Ads</h6>
+                
+            </div>
+            <div class="filters">
+                <ul>
+                    <li class="active" data-filter="*">All</li>
+                    <li data-filter=".des">Sell Ads</li>
+                    <li data-filter=".dev">Rent Ads</li>
+                    <li data-filter=".gra">Furniture Ads</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="col-lg-9">
+            <div class="filters-content">
+                <div class="prevy">
+                    <div class="container">
+
+                        <div class="dataviewCont">
+    
+                            <p-dataView #dv [value]="annonces" [paginator]="true" [rows]="6"  layout="grid">
+                             
+                        
+                        
+                        
+                        
+                        
+                                <ng-template let-product pTemplate="gridItem">
+                                    
+                                    <div class="bod">
+                                        <div class="container">
+                                            <div class="card">
+                                                <div class="imgBx">
+                                                    <img [src]='product.imgdesc[0].data' alt=" ">
+                                                    <!--
+                                                    <h3>{{annonce.title}}</h3>
+                                                    -->
+                                                </div>
+                                                <div class="contentBx">
+                                                    <div class="content">
+                                                        <span class="hx3">{{product.adresse.location}}</span>
+                                                        <h3> {{product.title}} </h3>
+                                                        <p class="desc">{{product.description}}</p>
+                                                        <div class="hx">{{product.date }}</div>
+                                            <div class="hx">Surface:   {{product.surface }} m²</div>
+                                            <h4> <i class="pi pi-phone" style="font-size: 1.5rem"></i> : {{product.phoneNumber}}</h4>
+                                            <span class="product-price">{{product.prixEstim}}.Tnd</span>  
+                                            <p-rating [ngModel]="product.nbrPieces" [readonly]="true" [cancel]="false"></p-rating>
+                                                
+                                                        </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                     </div>
+                                    
+                                </ng-template>
+                        
+                                
+                            </p-dataView>
+                        
+                        </div>
+                    
+                    
+                        
+                        
+                        <!--
+                        <div class="card">
+                            <div class="imgBx">
+                                <img src="../../assets/pic/iot-health2.jpg" alt="">
+                            </div>
+                            <div class="contentBx">
+                                <div class="content">
+                                    <h3>Post Two</h3>
+                                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt ratione architecto provident, fuga alias omnis laboriosam iste commodi necessitatibus quis rerum earum eveniet in, voluptatem accusantium voluptas ullam minima delectus?</p>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <div class="card">
+                            <div class="imgBx">
+                                <img src="../../assets/pic/3.jpg" alt="">
+                            </div>
+                            <div class="contentBx">
+                                <div class="content">
+                                    <h3>Post Three</h3>
+                                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt ratione architecto provident, fuga alias omnis laboriosam iste commodi necessitatibus quis rerum earum eveniet in, voluptatem accusantium voluptas ullam minima delectus?</p>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <div class="card">
+                            <div class="imgBx">
+                                <img src="../../assets/pic/iot-health2.jpg" alt="">
+                            </div>
+                            <div class="contentBx">
+                                <div class="content">
+                                    <h3>Post Four</h3>
+                                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt ratione architecto provident, fuga alias omnis laboriosam iste commodi necessitatibus quis rerum earum eveniet in, voluptatem accusantium voluptas ullam minima delectus?</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="imgBx">
+                                <img src="../../assets/pic/3.jpg" alt="">
+                            </div>
+                            <div class="contentBx">
+                                <div class="content">
+                                    <h3>Post Five</h3>
+                                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt ratione architecto provident, fuga alias omnis laboriosam iste commodi necessitatibus quis rerum earum eveniet in, voluptatem accusantium voluptas ullam minima delectus?</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="imgBx">
+                                <img src="../../assets/pic/iot-health2.jpg" alt="">
+                            </div>
+                            <div class="contentBx">
+                                <div class="content">
+                                    <h3>Post Four</h3>
+                                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt ratione architecto provident, fuga alias omnis laboriosam iste commodi necessitatibus quis rerum earum eveniet in, voluptatem accusantium voluptas ullam minima delectus?</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="imgBx">
+                                <img src="../../assets/pic/3.jpg" alt="">
+                            </div>
+                            <div class="contentBx">
+                                <div class="content">
+                                    <h3>Post Five</h3>
+                                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt ratione architecto provident, fuga alias omnis laboriosam iste commodi necessitatibus quis rerum earum eveniet in, voluptatem accusantium voluptas ullam minima delectus?</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="imgBx">
+                                <img src="../../assets/pic/iot-health2.jpg" alt="">
+                            </div>
+                            <div class="contentBx">
+                                <div class="content">
+                                    <h3>Post Four</h3>
+                                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt ratione architecto provident, fuga alias omnis laboriosam iste commodi necessitatibus quis rerum earum eveniet in, voluptatem accusantium voluptas ullam minima delectus?</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="imgBx">
+                                <img src="../../assets/pic/3.jpg" alt="">
+                            </div>
+                            <div class="contentBx">
+                                <div class="content">
+                                    <h3>Post Five</h3>
+                                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt ratione architecto provident, fuga alias omnis laboriosam iste commodi necessitatibus quis rerum earum eveniet in, voluptatem accusantium voluptas ullam minima delectus?</p>
+                                </div>
+                            </div>
+                        </div>
+                        -->
+                    </div>
+                    
+                </div>
+     </div>
+</div>
+</div>
+</div>
+</section>
+<app-map-comp-princ></app-map-comp-princ>
+                
+                
+                
+              
+    

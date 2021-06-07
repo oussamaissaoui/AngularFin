@@ -1,0 +1,55 @@
+.zeb{
+   margin-top: 75px;
+    
+}
+
+
+
+.homeSelect{
+    position: relative;
+    margin-left: 380px;
+    margin-top: -130px;
+    
+    z-index: 10;
+    top:-10px;
+    opacity: 0;
+   
+}
+
+.search{
+    position: absolute;
+    left: 1300px;
+    top: 160px;
+    
+    z-index: 11;
+    
+
+}
+
+
+.prevy{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    top: 800px;
+    left: 20px;
+   
+    
+    }
+
+.textClass{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    z-index: 1;
+    
+
+   top:-960px;
+   left: -360px;
+    
+}
+

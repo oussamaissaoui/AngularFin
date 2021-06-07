@@ -1,4 +1,5 @@
-import { Component, HostListener, OnInit } from '@angular/core';
+import { query } from '@angular/animations';
+import { Component, ElementRef, HostListener, OnInit } from '@angular/core';
 import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
@@ -15,7 +16,7 @@ export class HeaderComponent implements OnInit {
       this.isSticky = window.pageYOffset >= 90;
     }
 
-  constructor(config: NgbCarouselConfig) { 
+  constructor(config: NgbCarouselConfig, private sel:ElementRef) { 
     config.interval = 6000;
     config.wrap = true;
     config.keyboard = false;
@@ -23,8 +24,11 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit(): void {
+ 
     
   
   }
+
+  
 
 }

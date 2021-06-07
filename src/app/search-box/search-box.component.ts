@@ -52,13 +52,17 @@ export class SearchBoxComponent implements OnInit {
   constructor(private fb:FormBuilder) {
 
     this.Myform= fb.group({
+      Region:new FormControl(),
+      RoomsNumber: new FormControl(Validators.min(0)), 
       Surface: new FormControl(100,Validators.min(10)),
+      range:new FormControl(),
+      /*
       PassField: new FormControl(),
       Check: new FormControl(),
-      RegionField:new FormControl(),
-      range:new FormControl(),
-      Region:new FormControl(),
-      RoomsNumber: new FormControl(2, Validators.min(0))
+      RegionField:new FormControl(),*/
+      
+      
+      
       
     });
 
@@ -67,12 +71,13 @@ export class SearchBoxComponent implements OnInit {
   ngOnInit(): void {
  
    
-
+    console.log(this.Myform.value);
+    console.log("hiii")
    
    
   }
   onSubmit() {
-    console.log(this.Myform);
+    console.log(this.Myform.value);
    
     console.log(this.Myform.value.RegionField)
     console.log(this.Myform.value.PassField)
@@ -82,6 +87,7 @@ export class SearchBoxComponent implements OnInit {
   
     console.log(this.minValue)
     console.log(this.maxValue)
+    console.log("hiiiiii")
   }
 
 }

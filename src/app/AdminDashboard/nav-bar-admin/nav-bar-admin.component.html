@@ -1,0 +1,149 @@
+<div  class="main-wrapper" >
+
+    <div class="header animated fadeInLeftBig" style="z-index: 999999;">
+        <div class="header-left">
+           <a  class="logo">
+                <img src="../../../../assets/icons8-home-50.png" width="52" height="45" alt="" routerLink="/dashborad/admin/"> 
+                <span>Dari.tn</span>
+            </a>
+
+
+        </div>
+        <a id="toggle_btn" ><i class="fa fa-bars"></i></a>
+        <a id="mobile_btn" class="mobile_btn float-left" ><i class="fa fa-bars"></i></a>
+        <ul class="nav user-menu float-right">
+            <li  class="nav-item dropdown d-none d-sm-block ">  <!--cursur zedaa lezem-->
+                <a   class="dropdown-toggle nav-link" data-toggle="dropdown"><i class="fa fa-bell-o">
+              </i> <span class="badge badge-pill bg-danger float-right" >{{incrementNumberNotif}}</span></a><!--compteru pour notifications-->
+                <div class="dropdown-menu notifications">
+                    <div class="topnav-dropdown-header">
+                        <span>Notifications</span>
+                    </div>
+                    <div   class="drop-scroll">
+                        <ul class="notification-list"  *ngFor=" let notif of listNotif">
+                            <li class="notification-message">
+                                <a routerLink="/dashborad/admin/edit-notification">
+                                    <div class="media">
+                                        <span class="avatar">
+                                            <img alt="John Doe" src="assets/uploads/{{notif.picture}} " 
+                                             class="img-fluid">
+                                        </span>
+                                        <div class="media-body">
+                                            <p class="noti-details"><span class="noti-title">{{notif.userName}}</span> 
+                                                <span class="noti-title"> registred successfully</span></p>
+                                            <p class="noti-time"><span class="notification-time">4 mins ago</span></p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+
+                        <!--<ul class="notification-list" *ngFor="let k of listReclamationNotif">
+                            <li class="notification-message" >
+                                <a routerLink="/dashborad/admin/edit-notification">
+                                    <div class="media">
+                                        <span class="avatar">
+                                            <img alt="John Doe" src="assets/uploads/{{k.picture}} " 
+                                             class="img-fluid">
+                                        </span>
+                                        <div class="media-body">
+                                            <p class="noti-details"><span class="noti-title">{{k.userName}}</span> 
+                                                <span class="noti-title"> user post in comments bad words !! </span></p>
+                                            <p class="noti-time"><span class="notification-time">4 mins ago</span></p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                           
+                        </ul>-->
+                    </div>
+                    <div class="topnav-dropdown-footer">
+                        <a routerLink="/dashborad/admin/edit-notification">View all Notifications</a>
+                    </div>
+                </div>
+            </li>
+    
+            <li  class="nav-item dropdown d-none d-sm-block">
+                <a  id="open_msg_box" class="hasnotifications nav-link"><i class="fa fa-comment-o">
+    
+                </i> <span class="badge badge-pill bg-danger float-right">8</span></a><!--commpteur pour message chat-->
+            </li>
+    
+    
+            
+    
+            <li class="nav-item dropdown has-arrow">
+                <a href="#" class="dropdown-toggle nav-link user-link" data-toggle="dropdown"> <!--curur css au lieu href-->
+                    <span class="user-img">
+                        <img class="rounded-circle" src="assets/uploads/{{user.picture}}" width="34" alt="Admin">
+                        <span class="status online"></span>
+                    </span>&nbsp;
+                    <span>Admin</span>
+                </a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" routerLink="/dashborad/admin/profile" 
+                    (click)="getUserById(user.id)">My Profile</a>
+                    <a class="dropdown-item" routerLink="/dashborad/admin/edit-notification">Notifications</a>
+                   
+                    <a routerLink="/login" class="dropdown-item" (click)="logout(user.id)">Logout</a>
+                </div>
+            </li>
+        </ul>
+        <!--<div class="dropdown mobile-user-menu float-right">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
+            <div class="dropdown-menu dropdown-menu-right">
+                <a class="dropdown-item" routerLink="/profile">My Profile</a>
+                <a class="dropdown-item" href="edit-profile.html">Edit Profile</a>
+                <a class="dropdown-item" routerLink="/edit-profile">Logout</a>
+            </div>
+        </div>-->
+    </div>
+    
+    
+    <div  class="notification-box">
+        <div class="msg-sidebar notifications msg-noti">
+            <div class="topnav-dropdown-header">
+                <span>Messages</span>
+            </div>
+            <div class="drop-scroll msg-list-scroll" id="msg_list">
+                <ul class="list-box">
+                    <li>
+                        <a href="chat.html">
+                            <div class="list-item">
+                                <div class="list-left">
+                                    <span class="avatar">R</span>
+                                </div>
+                                <div class="list-body">
+                                    <span class="message-author">Richard Miles </span>
+                                    <span class="message-time">12:28 AM</span>
+                                    <div class="clearfix"></div>
+                                    <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="chat.html">
+                            <div class="list-item new-message">
+                                <div class="list-left">
+                                    <span class="avatar">J</span>
+                                </div>
+                                <div class="list-body">
+                                    <span class="message-author">John Doe</span>
+                                    <span class="message-time">1 Aug</span>
+                                    <div class="clearfix"></div>
+                                    <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+        
+                </ul>
+            </div>
+            <div class="topnav-dropdown-footer">
+                <a href="chat.html">See all messages</a>
+            </div>
+        </div>
+    </div>
+    
+    </div>

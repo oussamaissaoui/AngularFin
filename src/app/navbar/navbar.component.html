@@ -1,0 +1,566 @@
+<!-- ///////////////////////////////////********/////****///////////////////////////////////////////////////////////////
+-->
+<mat-toolbar class="header mat-elevation-z5 " style="box-shadow:none; z-index: 5555;">
+    
+       
+    <header class="header-area header-sticky">
+        <div class="container" >
+            <div class="row">
+                <div class="col-12">
+                    <nav class="main-nav">
+                        <!-- ***** Logo Start ***** -->
+                        <a routerLink="/" class="logo">
+                            DARI <a routerLink="/" class="logoPart2">
+                              .TN
+                          </a>
+                        </a>
+                        
+                        
+                        <!-- ***** Logo End ***** -->
+                        <!-- ***** Menu Start ***** -->
+                        <ul class="nav">
+                            <li class="scroll-to-section"><a routerLink="/" class="active">Home</a></li>
+                            <li class="scroll-to-section"><a >About</a></li>
+                            <li class="scroll-to-section"><a  data-toggle="modal" data-target="#exampleModal" 
+                                (click)="open(content)" >Post an Ad</a></li>
+                            <li class="submenu">
+                                <a routerLink="AdList">Ads</a>
+                                <ul>
+                                    <li><a href="">Sell Ads</a></li>
+                                    <li><a href="">Rent Ads</a></li>
+                                    <li><a href="">Furniture Ads</a></li>
+                                    
+                                </ul>
+                            </li>
+                            <li class="scroll-to-section"><a routerLink="UserProfile">My Profile</a></li> 
+
+                            
+
+                          
+                        </ul>        
+                        <a class='menu-trigger'>
+                            <span>Menu</span>
+                        </a>
+                        <!-- ***** Menu End ***** -->
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+       
+    
+    
+    
+      </mat-toolbar>
+
+      
+
+
+
+      
+  <mat-toolbar class="secondToolbar" style="z-index: 5555;" [ngClass]="{'mat-elevation-z5' : true, 'sticky' : isSticky}">
+    
+    <header class="header-area header-sticky">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav class="main-nav">
+                        <!-- ***** Logo Start ***** -->
+                        <a routerLink="/" class="logo">
+                          TN. 
+                          <a routerLink="/" class="logoPart2">
+                            DARI
+                        </a>
+                      </a>
+                      
+                        <!-- ***** Logo End ***** -->
+                        <!-- ***** Menu Start ***** -->
+                        <ul class="nav">
+                            <li class="scroll-to-section"><a routerLink="/" class="active">Home</a></li>
+                            <li class="scroll-to-section"><a>About</a></li>
+                            <li class="scroll-to-section"><a  data-toggle="modal" data-target="#exampleModal" 
+                              (click)="open(content)" >Post an Ad</a></li>
+                            <li class="submenu">
+                              <a routerLink="AdList">Ads</a>
+                                <ul>
+                            
+                                    <li><a href="">Sell Ads</a></li>
+                                    <li><a href="">Rent Ads</a></li>
+                                    <li><a href="">Furniture Ads</a></li>
+                                    
+                                </ul>
+                            </li>
+                            <li class="scroll-to-section"><a routerLink="UserProfile">My Profile</a></li> 
+                          
+                        </ul>        
+                        <a class='menu-trigger'>
+                            <span>Menu</span>
+                        </a>
+                        <!-- ***** Menu End ***** -->
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+
+  </mat-toolbar>
+
+  
+
+
+  <!-- ///////////////////////////////////CREATE COMPONENT MODAL ///////////////////////////////////////////////////////////////
+-->
+
+
+
+
+<ng-template #content let-c="close" let-d="dismiss" class="aaa" >
+    
+    
+    <div class="modal-header">
+      <h4 class="modal-title" style="margin: 3px;">Ad details</h4>
+      <button type="button" class="btn btn-secondary" style="background-color: rgb(197, 197, 197);"(click)="c('Close click')" >X</button>
+    </div>
+
+
+    <div class="modal-body">
+        <div class="containerModal">
+            
+                
+<!--
+            <mat-horizontal-stepper linear #stepper>
+                
+                
+                <mat-step [stepControl]="firstFormGroup" [editable]="isEditable">
+                  <form [formGroup]="firstFormGroup">
+                    <ng-template matStepLabel>Fill out your add's general information</ng-template>
+                    
+                   
+         <div class="comp">
+          <div class="card bg-secondary shadow">
+           
+            <div class="card-body">
+              <form>
+                <h6 class="heading-small text-muted mb-4">Ad information</h6>
+                <div class="pl-lg-4">
+                  <div class="row">
+                    <div class="col-lg-6">
+                      <div class="form-group focused">
+                        <label class="form-control-label" for="input-username">Title</label>
+                        <input type="text" id="input-username" class="form-control form-control-alternative" placeholder="" value="">
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <div class="form-group">
+                        <label class="form-control-label" for="input-email">Description</label>
+                        <input type="email" id="input-email" class="form-control form-control-alternative" placeholder="">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-6">
+                      <div class="form-group focused">
+                        <label class="form-control-label" for="input-first-name">Ad Type</label>
+                        <input type="text" id="input-first-name" class="form-control form-control-alternative" placeholder="" value="">
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <div class="form-group focused">
+                        <label class="form-control-label" for="input-last-name">Contact Phone Number</label>
+                        <input type="text" id="input-last-name" class="form-control form-control-alternative" placeholder="" value="">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <hr class="my-4">
+                
+                <h6 class="heading-small text-muted mb-4">Adress Details</h6>
+                <div class="pl-lg-4">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="form-group focused">
+                        <label class="form-control-label" for="input-address">Street</label>
+                        <input id="input-address" class="form-control form-control-alternative" placeholder="" value="" type="text">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-4">
+                      <div class="form-group focused">
+                        <label class="form-control-label" for="input-city">City</label>
+                        <input type="text" id="input-city" class="form-control form-control-alternative" placeholder="" value="">
+                      </div>
+                    </div>
+                    <div class="col-lg-4">
+                      <div class="form-group focused">
+                        <label class="form-control-label" for="input-country">Postal Code</label>
+                        <input type="text" id="input-country" class="form-control form-control-alternative" placeholder="" value="">
+                      </div>
+                    </div>
+                    <div class="col-lg-4">
+                      <div class="form-group">
+                        <label class="form-control-label" for="input-country">Real Estate Phone number</label>
+                        <input type="number" id="input-postal-code" class="form-control form-control-alternative" placeholder="">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <hr class="my-4">
+                
+                
+                
+                      </form>
+                    </div>
+                  </div>
+              </div>
+        
+      
+                    <div>
+                      <button mat-button matStepperNext class="btn btn-sm btn-primary">Next</button>
+                    </div>
+                  </form>
+                </mat-step>
+
+                
+                
+                <mat-step [stepControl]="secondFormGroup" [editable]="isEditable">
+                    <form [formGroup]="secondFormGroup">
+                      <ng-template matStepLabel>Fill out your address</ng-template>
+                      <mat-form-field>
+                        <mat-label>Surface </mat-label>
+                        <input matInput formControlName="DescriptionCtrl" placeholder="Surface" required>
+                    </mat-form-field>
+
+                    <mat-form-field>
+                        <mat-label>Number of Rooms </mat-label>
+                        <input matInput formControlName="DescriptionCtrl" placeholder="Rooms" required>
+                    </mat-form-field>
+                    <mat-form-field>
+                        <mat-label>Price </mat-label>
+                        <input matInput formControlName="DescriptionCtrl" placeholder="Price" required>
+                    </mat-form-field>
+                   
+                      <div>
+                        <button mat-button matStepperPrevious>Back</button>
+                        <button mat-button matStepperNext>Next</button>
+                      </div>
+                    </form>
+                  </mat-step>
+                
+                
+                <mat-step [stepControl]="secondFormGroup" [editable]="isEditable">
+                  <form [formGroup]="secondFormGroup">
+                    <ng-template matStepLabel>Fill out your address</ng-template>
+                    <mat-form-field>
+                      <mat-label>Address</mat-label>
+                      <input matInput formControlName="secondCtrl" placeholder="Ex. 1 Main St, New York, NY"
+                             required>
+                    </mat-form-field>
+                    <div>
+                      <button mat-button matStepperPrevious>Back</button>
+                      <button mat-button matStepperNext>Next</button>
+                    </div>
+                  </form>
+                </mat-step>
+                
+                
+                <mat-step>
+                  <ng-template matStepLabel>Done</ng-template>
+                  <p>You are now done.</p>
+                  <div>
+                    <button mat-button matStepperPrevious>Back</button>
+                    <button mat-button (click)="stepper.reset()">Reset</button>
+                  </div>
+                </mat-step>
+
+              </mat-horizontal-stepper>
+
+              -->
+
+              <mat-horizontal-stepper [linear]="isLinear" #stepper>
+                
+                <mat-step [stepControl]="firstFormGroup">
+                  
+
+
+                  <form [formGroup]="firstFormGroup">
+                    <ng-template matStepLabel>Ad General Informations</ng-template>
+                    <div class="comp">
+                      <div class="card bg-secondary shadow">
+                       
+                        <div class="card-body">
+                         
+                            <h6 class="heading-small text-muted mb-4">Ad information</h6>
+                            <div class="pl-lg-4">
+                              <div class="row">
+                                <div class="col-lg-6">
+                                  <div class="form-group focused">
+                                    <label class="form-control-label" for="input-username">Title</label>
+                                    <input type="text" id="input-username" class="form-control form-control-alternative" placeholder="" value="" formControlName="TitleCtrl" >
+                                  </div>
+                                </div>
+                                <div class="col-lg-6">
+                                  <div class="form-group">
+                                    <label class="form-control-label" for="input-email">Description</label>
+                                    <input type="email" id="input-email" class="form-control form-control-alternative" placeholder="" formControlName="DescriptionCtrl">
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="row">
+                                <div class="col-lg-6">
+                                  <div class="form-group focused">
+                                    <label class="form-control-label" for="input-first-name">Ad Type</label>
+                                    <input type="text" id="input-first-name" class="form-control form-control-alternative" placeholder="" value=""formControlName="TypeCtrl">
+                                  </div>
+                                </div>
+                                <div class="col-lg-6">
+                                  <div class="form-group focused">
+                                    <label class="form-control-label" for="input-last-name">Contact Phone Number</label>
+                                    <input type="text" id="input-last-name" class="form-control form-control-alternative" placeholder="" value="" formControlName="PhoneCtrl">
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <hr class="my-4">
+                            
+                            <h6 class="heading-small text-muted mb-4">Adress Details</h6>
+                            <div class="pl-lg-4">
+                              <div class="row">
+                                <div class="col-md-12">
+                                  <div class="form-group focused">
+                                    <label class="form-control-label" for="input-address">Street</label>
+                                    <input id="input-address" class="form-control form-control-alternative" placeholder="" value="" type="text"formControlName="StreetCtrl">
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="row">
+                                <div class="col-lg-4">
+                                  <div class="form-group focused">
+                                    <label class="form-control-label" for="input-city">City</label>
+                                    <input type="text" id="input-city" class="form-control form-control-alternative" placeholder="" value=""formControlName="CityCtrl">
+                                  </div>
+                                </div>
+                                <div class="col-lg-4">
+                                  <div class="form-group focused">
+                                    <label class="form-control-label" for="input-country">Postal Code</label>
+                                    <input type="text" id="input-country" class="form-control form-control-alternative" placeholder="" value=""formControlName="PostalCtrl">
+                                  </div>
+                                </div>
+                                <div class="col-lg-4">
+                                  <div class="form-group">
+                                    <label class="form-control-label" for="input-country">Real Estate Phone number</label>
+                                    <input type="number" id="input-postal-code" class="form-control form-control-alternative" placeholder=""formControlName="RePhoneCtrl">
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <hr class="my-4">
+                            
+                            
+                            
+                                  
+                                </div>
+                              </div>
+                          </div>
+                    
+                    <div>
+                      <button mat-button matStepperNext class="btn btn-sm btn-primary" style="margin-left: 95%; margin-bottom: 0px; margin-top: 15px;" (click)="AddFirstCtrl()">Next</button>
+                    </div>
+                  </form>
+
+
+                </mat-step>
+                <!--
+                <mat-step [stepControl]="LocationFormGroup" label="Map Location">
+                  <form [formGroup]="LocationFormGroup">
+                    <ng-template matStepLabel>Map Location</ng-template>
+                    <div class="comp">
+                      <div class="card bg-secondary shadow">
+                       
+                        <div class="card-body">
+
+                          
+                          
+                          
+                          </div>
+                        </div>
+                      </div>
+                    
+                                <div>
+                                  <button mat-button matStepperPrevious class="btn btn-sm btn-primary" style="margin-left: 3%; margin-top: 3%;">Back</button>
+                                  <button mat-button matStepperNext class="btn btn-sm btn-primary" style="margin-left: 85%; margin-top: 3%;" (click)="AddThirdCtrl()" >Next</button>
+                                  <button mat-button matStepperNext class="btn btn-sm btn-primary" style="margin-left: 35%; margin-top: 3%;" (click)="clickImg()" >Send request</button>
+                                </div>
+                  </form>
+                </mat-step>
+
+-->
+
+                <mat-step [stepControl]="secondFormGroup" label="Fill out your address">
+                  <form [formGroup]="secondFormGroup">
+                    <ng-template matStepLabel>Ad Specific Information</ng-template>
+                    <div class="comp">
+                      <div class="card bg-secondary shadow">
+                       
+                        <div class="card-body">
+                         
+                            <h6 class="heading-small text-muted mb-4">Ad information</h6>
+                            <div class="pl-lg-4">
+                              <div class="row">
+                                <div class="col-lg-6">
+                                  <div class="form-group focused">
+                                    <label class="form-control-label" for="input-username">Number of rooms</label>
+                                    <input type="number" id="input-username" class="form-control form-control-alternative" placeholder="" value="" formControlName="RoomCtrl" >
+                                  </div>
+                                </div>
+                                <div class="col-lg-6">
+                                  <div class="form-group">
+                                    <label class="form-control-label" for="input-email">Surface</label>
+                                    <input type="number" id="input-email" class="form-control form-control-alternative" placeholder="" formControlName="SurfaceCtrl">
+                                  </div>
+                                </div>
+                                <div class="col-lg-6">
+                                  <div class="form-group">
+                                    <label class="form-control-label" for="input-email">Price</label>
+                                    <input type="number" id="input-email" class="form-control form-control-alternative" placeholder="" formControlName="PriceCtrl">
+                                  </div>
+                                </div>
+                              </div>
+                             
+                            </div>
+                            <hr class="my-4">
+                            
+                            <h6 class="heading-small text-muted mb-4">Other Critaria</h6>
+                            <div class="pl-lg-4">
+                              <div class="row">
+                                <div class="col-lg-4">
+                                  <div class="form-group focused">
+                                    <label class="form-control-label" for="input-address">terrasse</label>
+                                    <input type="checkbox" id="input-address" class="" style="width: 40px;" placeholder="" value="" formControlName="TerrasseCtrl">
+                                  </div>
+                                </div>
+                                <div class="col-lg-4">
+                                  <div class="form-group focused">
+                                    <label class="form-control-label" for="input-address">balcon</label>
+                                    <input type="checkbox" id="input-address" class="" style="width: 40px;" placeholder="" value="" formControlName="BalconCtrl">
+                                  </div>
+                                </div>
+                                <div class="col-lg-4">
+                                  <div class="form-group focused">
+                                    <label class="form-control-label" for="input-address">assenceur</label>
+                                    <input type="checkbox" id="input-address" class="" style="width: 40px;" placeholder="" value="" formControlName="AssenceurCtrl">
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="row">
+                                <div class="col-lg-4">
+                                  <div class="form-group focused">
+                                    <label class="form-control-label" for="input-city">garage</label>
+                                    <input type="checkbox" id="input-city" class="" style="width: 40px;" placeholder="" value=""formControlName="GarageCtrl">
+                                  </div>
+                                </div>
+                                
+                                <div class="col-lg-4">
+                                  <div class="form-group focused">
+                                    <label class="form-control-label" for="input-country">vueMer</label>
+                                    <input type="checkbox" id="input-country" class="" style="width: 40px;" placeholder="" value=""formControlName="VueMerCtrl">
+                                  </div>
+                                </div>
+                                <div class="col-lg-4">
+                                  <div class="form-group">
+                                    <label class="form-control-label" for="input-country">parking</label>
+                                    <input type="checkbox" id="input-postal-code" class="" style="width: 40px;" placeholder=""formControlName="ParkingCtrl">
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="row">
+                                <div class="col-lg-4">
+                                  <div class="form-group focused">
+                                    <label class="form-control-label" for="input-city">cave</label>
+                                    <input type="checkbox" id="input-city" class="" style="width: 40px;" placeholder="" value=""formControlName="CaveCtrl">
+                                  </div>
+                                </div>
+                                
+                                <div class="col-lg-4">
+                                  <div class="form-group focused">
+                                    <label class="form-control-label" for="input-country">piscine</label>
+                                    <input type="checkbox" id="input-country" class="" style="width: 40px;" placeholder="" value=""formControlName="PiscineCtrl">
+                                  </div>
+                                </div>
+                                
+                              </div>
+                            </div>
+                            <hr class="my-4">
+                            
+                            
+                            
+                                  
+                                </div>
+                              </div>
+                          </div>
+                    
+                    <div>
+                      <button mat-button class="btn btn-sm btn-primary" style="margin-left: 3%; margin-top: 3%;" matStepperPrevious>Back</button>
+                      <button mat-button matStepperNext class="btn btn-sm btn-primary" style="margin-left: 85%; margin-top: 3%;" (click)="AddSecondCtrl()">Next</button>
+                    </div>
+                  </form>
+                </mat-step>
+
+                
+                
+                <mat-step [stepControl]="thirdFormGroup" label="Fill out your address">
+                  <form [formGroup]="thirdFormGroup">
+                    <ng-template matStepLabel>Upload Add Images</ng-template>
+                    <div class="comp">
+                      <div class="card bg-secondary shadow">
+                       
+                        <div class="card-body">
+                         
+                            <h6 class="heading-small text-muted mb-4">Ad information</h6>
+                            <div class="pl-lg-4">
+                              <div class="row">
+                                <div class="col-lg-6">
+                                  <div class="form-group focused">
+                                    <label class="form-control-label" for="input-username">Select Image</label>
+                                    <input type="file" accept="image/*" id="input-username" class="form-control form-control-alternative" placeholder="" value="" formControlName="ImageCtrl" (change)="OnSelectFile($event)" >
+                                  <img [src]="imageInter" height="200" style="margin-top: 20px;" alt="">
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    
+                                <div>
+                                  <button mat-button matStepperPrevious class="btn btn-sm btn-primary" style="margin-left: 3%; margin-top: 3%;">Back</button>
+                                  <button mat-button matStepperNext class="btn btn-sm btn-primary" style="margin-left: 85%; margin-top: 3%;" (click)="clickImg()" (click)="AddThirdCtrl()" >Next</button>
+                                  <button mat-button matStepperNext class="btn btn-sm btn-primary" style="margin-left: 35%; margin-top: 3%;" > NOOON Send request</button>
+                                </div>
+                  </form>
+                </mat-step>
+                
+                
+                <mat-step>
+                  <ng-template matStepLabel>Done</ng-template>
+                  <h2 style="text-align: center; margin-top: 60px;">You are now done. Your Ad has been added</h2>
+                  <div>
+                    <button mat-button class="btn btn-sm btn-primary" style="margin-left: 3%; margin-top: 3%;" matStepperPrevious>Back</button>
+                    <button mat-button class="btn btn-sm btn-primary" style="margin-left: 85%; margin-top: 3%;" (click)="stepper.reset()">Reset</button>
+                    <button mat-button class="btn btn-sm btn-primary" style="margin-left: 55%; margin-top: 3%;"  (click)="ajouterAnn()" (click)="c('Close click')">ajoutBd</button>
+                  </div>
+                </mat-step>
+              </mat-horizontal-stepper>
+
+            </div>
+        </div>
+    
+      
+<!--
+    <div class="modal-footer">
+       <button type="button" class="btn btn-secondary" "(click)="c('Close click')">Close</button>
+      <br>
+    </div>-->
+ </ng-template>
+
+

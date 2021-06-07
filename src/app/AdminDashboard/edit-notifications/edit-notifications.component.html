@@ -1,0 +1,37 @@
+<div class="page-wrapper">
+    <div class="content">
+        <div class="row">
+            <div class="col-sm-12">
+                <h4 class="page-title">Notifications</h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8">
+                <div class="activity">
+                    <div class="activity-box">
+                        <ul class="activity-list" >
+                            <li      *ngFor='let notif of listNotif'>
+                                <div class="activity-user">
+                                    <a  title="Lesley Grauer" data-toggle="tooltip" class="avatar">
+                                        <img widh='35px' height="25px" src="assets/uploads/{{notif.picture}}" class="img-fluid rounded-circle">
+                                    </a>
+                                </div>
+                                <div class="activity-content">
+                                    <div class="timeline-content">
+                                        <a class="name">{{notif.userName}}</a> registred successfully
+                                        <a href="#">in Dari.tn</a>
+                                        <span class="time">4 mins ago</span>
+                                    </div>
+                                </div>
+                                <a class="activity-delete"  title="Delete" (click)="deleteNotifById(notif.id)">&times;</a>
+                            </li>
+                           
+                       
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  
+</div>

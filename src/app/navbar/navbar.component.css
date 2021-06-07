@@ -1,0 +1,184 @@
+.map-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: 30px;
+}
+
+.map-frame {
+  
+  height: 60%;
+  width: 80%;
+  box-shadow: 10px 10px 10px rgb(201, 199, 199);
+}
+
+#map {
+  height: 100%;
+  width: 100%;
+}
+
+
+.header {
+    z-index: 2;
+    height: 75px;
+    width: 100%;
+    background:transparent;
+  }
+  
+  .secondToolbar {
+    position: fixed;
+    z-index: 30;
+    background: #cacaca;
+    top: 0;
+    height: 0;
+    opacity: 0;
+    transition: opacity 0.25s ease-out, height 0.15s ease;
+    cursor: default;
+    user-select: none;
+  }
+  
+  .sticky {
+    height: 75px;
+    opacity: 100%;
+    transition: opacity 0.25s ease-out, height 0.15s ease;
+  }
+
+  .logo{
+    margin-top: 11px;
+  }
+  .logoPart2{
+
+    color: #00d8ff ;
+    line-height: 80px;
+ 
+  font-size: 28px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  float: left;
+
+  }
+  
+  /* ++++++++++++++++++++++++++++++++++++++++++++++++++ MODAL with STEPPER and FORM +++++++++++++++++++++++++++++++++++++++++++*/
+
+  .formfld{
+    display: flex;
+   margin: 15px;
+   max-width: 350px;
+  }
+
+  .formfld mat-label{
+    margin: 5px;
+    height: 50px;
+    
+
+  }
+
+
+
+
+  .card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    border: 1px solid rgba(0, 0, 0, .05);
+    border-radius: .375rem;
+    background-color: #fff;
+    background-clip: border-box;
+    margin-bottom: 00px;
+  }
+
+  
+  .card>hr {
+    margin-right: 0;
+    margin-left: 0;
+  }
+  
+  .card-body {
+    padding: 0.5rem;
+    padding-bottom: 0.5rem;
+    flex: 1 1 auto;
+  }
+  
+  .card-header {
+    margin-bottom: 0;
+    padding: 1.25rem 1.5rem;
+    border-bottom: 1px solid rgba(0, 0, 0, .05);
+    background-color: #fff;
+  }
+  
+  .card-header:first-child {
+    border-radius: calc(.375rem - 1px) calc(.375rem - 1px) 0 0;
+  }
+  
+  
+  
+
+  
+  .media {
+    display: flex;
+    align-items: flex-start;
+  }
+  
+  .media-body {
+    flex: 1 1;
+  }
+  
+  .bg-secondary {
+    background-color: #f7fafc !important;
+  }
+  
+  a.bg-secondary:hover,
+  a.bg-secondary:focus,
+  button.bg-secondary:hover,
+  button.bg-secondary:focus {
+    background-color: #d2e3ee !important;
+  }
+  
+  .bg-default {
+    background-color: #172b4d !important;
+  }
+  
+  a.bg-default:hover,
+  a.bg-default:focus,
+  button.bg-default:hover,
+  button.bg-default:focus {
+    background-color: #0b1526 !important;
+  }
+  
+  .bg-white {
+    background-color: #fff !important;
+  }
+  
+  a.bg-white:hover,
+  a.bg-white:focus,
+  button.bg-white:hover,
+  button.bg-white:focus {
+    background-color: #e6e6e6 !important;
+  }
+
+  
+  .border-0 {
+    border: 0 !important;
+  }
+  
+  .rounded-circle {
+    border-radius: 50% !important;
+  }
+  
+  .d-none {
+    display: none !important;
+  }
+  
+  .d-flex {
+    display: flex !important;
+  }
+  
+ 
+  
+  
+  

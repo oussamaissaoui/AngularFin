@@ -1,0 +1,195 @@
+<div class="page-wrapper">
+    <div class="content">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2">
+                <h4 class="page-title">Edit users</h4>
+            </div>
+        </div>
+        <div class="row animated fadeInDown">
+            <div class="col-lg-8 offset-lg-2">
+                <form [formGroup]="registerForm">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>First Name <span class="text-danger">*</span></label>
+                                <input class="form-control"
+                                formControlName="firstName" [(ngModel)]="user.firstName" name="firstName" 
+                                [ngClass]="{ 'is-invalid': f.firstName.errors }" type="text" value="">
+                                <div *ngIf="f.firstName.errors" class="invalid-feedback">
+                                    <div *ngIf="f.firstName.errors.required" class="animated fadeInRightBig">firstname is required</div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Last Name</label>
+                                <input class="form-control" 
+                                formControlName="lastName"[(ngModel)]="user.lastName" name="lastName"
+                                [ngClass]="{ 'is-invalid': f.lastName.errors }" type="text" value="">
+                                <div *ngIf="f.firstName.errors" class="invalid-feedback">
+                                    <div *ngIf="f.firstName.errors.required" class="animated fadeInRightBig">
+                                        lastname is required</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Username <span class="text-danger">*</span></label>
+                                <input class="form-control"  [ngClass]="{ 'is-invalid': f.userName.errors }"
+                                formControlName="userName" type="text" [(ngModel)]="user.userName" name="userName" value="">
+                                <div *ngIf="f.userName.errors" class="invalid-feedback">
+                                    <div *ngIf="f.userName.errors.required" class="animated fadeInRightBig">
+                                        userName is required</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Email <span class="text-danger">*</span></label>
+                                <input class="form-control"
+                                formControlName="email" type="email" [(ngModel)]="user.email" name="email"
+                                [ngClass]="{ 'is-invalid': f.email.errors }" >
+                                <div *ngIf="f.email.errors" class="invalid-feedback">
+                                    <div *ngIf="f.email.errors.required" class="animated fadeInRightBig">
+                                        email is required</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Password</label>
+                                <input class="form-control"
+                                formControlName="password" placeholder="enter new password" name="password"
+                                 type="password"     [ngClass]="{ 'is-invalid': f.password.errors }">
+                                 <div *ngIf="f.password.errors" class="invalid-feedback">
+                                    <div *ngIf="f.password.errors.required" class="animated fadeInRightBig">
+                                        password is required</div>
+                                        <div *ngIf="f.password.errors.minlength" 
+                                        class="animated fadeInRightBig">Password must be at least 6 characters</div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Confirm Password</label>
+                                <input class="form-control"
+                                formControlName="ConfirmPassword"
+                                 placeholder="enter new password" name="password"
+                                 type="password" [ngClass]="{ 'is-invalid':f.ConfirmPassword.errors }">
+                                 <div *ngIf=" f.ConfirmPassword.errors" class="invalid-feedback">
+                                    <div *ngIf="f.ConfirmPassword.errors.required"
+                                     class="animated fadeInRightBig">Password is required</div>
+                                    <div *ngIf="f.ConfirmPassword.errors.minlength" 
+                                    class="animated fadeInRightBig">Password must be at least 6 characters</div>
+                                    <div *ngIf="registerForm.controls.ConfirmPassword.invalid" 
+                                    class="animated fadeInRightBig"> Password and confirm password should match</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Date</label>
+                             
+                                    <input type="date"
+                                    formControlName="dateNaissance" [(ngModel)]="user.dateNaissance"
+                                     name="dateNaissance"  class="form-control datetimepicker"
+                                     [ngClass]="{ 'is-invalid':  f.dateNaissance.errors }">
+                                     <div *ngIf="f.dateNaissance.errors" class="invalid-feedback">
+                                        <div *ngIf="f.dateNaissance.errors.required" 
+                                        class="animated fadeInRightBig">Date is required</div>
+                                       
+                                    </div>
+                              
+                            </div>
+                        </div>
+                      
+                        <div class="col-sm-12">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label>Location</label>
+                                        <input type="text" 
+                                        formControlName="lieu" [(ngModel)]="user.lieu" name="lien" 
+                                        class="form-control " [ngClass]="{ 'is-invalid': f.lieu.errors }" >
+                                        <div *ngIf="f.lieu.errors" class="invalid-feedback">
+                                            <div *ngIf="f.lieu.errors.required" 
+                                            class="animated fadeInRightBig">
+                                                location is required</div>
+                                        </div>
+                                    </div>
+                                </div>
+                             
+                             
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Phone Number</label>
+                                <input class="form-control"
+                                formControlName="phoneNumber" [(ngModel)]="user.phoneNumber"
+                                 name="phoneNumber" type="text"
+                                 [ngClass]="{ 'is-invalid': f.phoneNumber.errors }" 
+                                 pattern="[+]{1}[0-9]{11,14}">
+
+                                 <div *ngIf="f.phoneNumber.errors" class="invalid-feedback">
+                                    <div *ngIf="f.phoneNumber.errors.required" class="animated fadeInRightBig">Phone Number is required</div>
+                                    <div *ngIf="f.phoneNumber.errors.pattern" class="animated fadeInRightBig">Invalid phone Number</div>
+                                   
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Your avatar:</label>
+                                <div class="profile-upload">
+                                    <div class="upload-img">
+                                        <img alt="" src="../../../../assets/uploads/{{user.picture}}">
+                                    </div>
+                                    <div class="upload-input">
+                                        <input type="file" (change)="selectFile($event)" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                  
+                    <div class="form-group">
+                        <label class="display-block">Status</label>
+
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio"
+                            formControlName="isBlock" name="isBlock" 
+                            id="active" value="active" checked [(ngModel)]="user.block"
+                            >
+                            <label class="form-check-label" for="active">
+                            Active
+                            </label>
+                        </div>
+
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio"
+                            [(ngModel)]="user.block" name="isBlock" id="inactive"
+                             value="inactive"  formControlName="isBlock">
+                            <label class="form-check-label" for="inactive">
+                            Inactive
+                            </label>
+                        </div>
+                    </div>
+                    <div class="m-t-20 text-center">
+                        <!--<a href="/dashborad/admin/list-users" class="btn btn-primary submit-btn"  (click)="save()">Save</a>-->
+
+                        <a  href="/dashborad/admin/list-users" (click)="save()">
+
+                            <span>Edit User</span>
+                            <div class="liquid"></div>
+                              
+                         </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+  
+</div>

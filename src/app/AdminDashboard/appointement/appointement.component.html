@@ -1,0 +1,117 @@
+
+<div class="page-wrapper">
+    <div class="content">
+        <div class="row">
+            <div class="col-sm-4 col-3">
+                <h4 class="page-title">Appointments</h4>
+            </div>
+            <div class="col-sm-8 col-9 text-right m-b-20">
+               
+            </div>
+
+            <div class="row filter-row">
+                <div class="BoxContainer">
+                    <table class="elementsContainer">
+                        <tr>
+        
+                            <td>
+        
+                                <input class="text" placeholder="Search" class="search"   [(ngModel)]="userName" (ngModelChange)='search()'>
+                            </td>
+        
+                            <td>
+                                <a><i class="fa fa-search" aria-hidden="true"></i></a>
+                            </td>
+                        </tr>
+        
+                    </table>
+        
+        
+                </div>
+        
+                <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                </div>
+                 <br>
+        </div> <br>
+
+        <div class="row animated rotateInUpLeft">
+            <div class="col-md-12">
+                <div class="table-responsive">
+                    <table class="table table-striped custom-table">
+                        <thead>
+                            <tr>
+                                <th>Appointment ID</th>
+                                <th>Picture</th>
+                                <th>UserName</th>
+                                <th>Attendance</th>
+                                <th>Visibility</th>
+                             
+                                <th>Appointment Date</th>
+                                <th>State</th>
+                                <th>Purchased</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody  *ngFor="let user of listAppointement | paginate: {itemsPerPage:4,currentPage:p} ; let i=index">
+                           
+                            <tr  *ngFor="let app of user.appointment   ">
+                                <td>APT000{{app.idAppointement}}</td>
+                                <td><img width="40" height="33" src="assets/uploads/{{user.picture}}" 
+                                    class="rounded-circle m-r-8" alt=""> </td>
+                                <td>{{user.userName}}</td>
+                                <td>{{app.attendance}}</td>
+                                
+                                <td>
+                                    <span *ngIf="app.visibility" class="custom-badge status-green">Visible</span>
+                                
+                                    <span *ngIf="!app.visibility" class="custom-badge status-red">NotVisible</span>
+                                </td>
+                                <td>{{app.dateAppointement}}</td>
+                                <td >{{app.state}}</td>
+
+                                <td>
+                                    <span *ngIf="app.purchased" class="custom-badge status-green">Purchased</span>
+                                
+                                    <span *ngIf="!app.purchased" class="custom-badge status-red">NotPurchased</span>
+                                </td>
+
+
+                                <td class="items">
+                                   
+
+                                    <a class="dropdown-item"    (click)="getAppByUser(user,app)"
+                                    routerLink="/dashborad/admin/edit-appointement">
+                                    <img width="27" height="21" src="../../../assets/icons8-edit (1).gif" 
+                                    class="rounded-circle m-r-8" alt=""></a>
+
+                                    <a class="dropdown-item"  data-toggle="modal" 
+                                    (click)="getIdApp(app.idAppointement)"
+                                     data-target="#delete_employee">
+                                     <img width="27" height="21" src="../../../assets/icons8-delete-48.png" 
+                                        class="rounded-circle m-r-8" alt=""> </a>
+                              
+                                 </td>
+
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>
+<div id="delete_employee" class="modal fade delete-modal" role="dialog">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                <img src="../../../assets/sent.png" alt="" width="50" height="46">
+                <h3>Are you sure want to delete this users?</h3>
+                <div class="m-t-20"> <!--<a class="btn btn-white" data-dismiss="modal">Close</a>-->
+                    <button type="submit" class="btn btn-danger" data-dismiss="modal" 
+                    (click)="deleteAppById()">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

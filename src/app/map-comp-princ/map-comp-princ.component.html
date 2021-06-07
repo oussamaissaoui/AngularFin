@@ -1,0 +1,66 @@
+
+<div class="map-container">
+  <div class="map-frame">
+    <div class="popUp" id="map"></div>
+  </div>
+</div>
+
+<ng-template #content let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Ad details</h4>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  
+              <div class="modal-body">
+
+                <div class="containerModal">
+  
+                  <div class="xzoom-container" >
+                      
+                      <div class="zoomMainimg">
+                        
+                              <lib-ngx-image-zoom
+                                  [thumbImage]=myThumbnail
+                                  [fullImage]=myThumbnail
+                                  [magnification]="2"
+                                  [enableScrollZoom]="true"
+                                  [enableLens]="true"
+                                  [lensWidth]="350"
+                                  [lensHeight]="150">
+                                  [resultStyle]="'widh:400px;height:400px'"
+                              </lib-ngx-image-zoom>
+                          
+                          <img src="" alt="">
+                      </div>
+                      
+                              <div class="xzoom-thumbs">
+                                  
+                                  <img [src]='ModalServData.imgmulti[0].imageUrl' alt=""(click)="showimg0()">
+                                  
+                                      
+                              
+                              </div>
+                  
+                  </div>
+              
+                  <div class="description">
+                      <h2>{{ModalServData.title}} </h2>
+                      <p class="desc">{{ModalServData.description}}</p>
+                      <div class="hx" style="margin-top: 245px;"><b>Date : </b> {{ModalServData.date }}</div>
+                      <div class="hx"> <b>Surface :</b>   {{ModalServData.surface }} m²</div>
+                      <h4> <i class="pi pi-phone" style="font-size: 1.5rem"></i> : {{ModalServData.phoneNumber}}</h4>
+                      <span class="product-price"> <b>Price : </b>  {{ModalServData.prixEstim}}.Tnd</span>  
+                      
+                      
+                      
+                  </div>
+              </div>
+              
+              </div>
+
+   <!--<div class="modal-footer">
+   <button type="button" class="btn btn-outline-dark" (click)="c('Save click')">Contact</button>
+  </div>-->
+</ng-template>
